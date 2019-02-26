@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
 
-    private Button button_register;
-    private Button button_login;
+    TextView button_register;
+    Button button_login;
+    EditText input_username;
+    EditText input_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,31 +23,24 @@ public class MainActivity extends AppCompatActivity{
         // variable button assigning to its id in xml file
         button_register = findViewById(R.id.register);
         button_login = findViewById(R.id.LoginButton);
+        input_username = findViewById(R.id.StudentnummerText);
+        input_password = findViewById(R.id.WachtwoordText);
 
         // build in method to assign a action to a button-press
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRegister();
+                Intent Registerintent = new Intent(MainActivity.this, Register.class);
+                startActivity(Registerintent);
             }
         });
 
         button_login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                openLoggedIn();
+            @Override
+            public void onClick(View v) {
+                Intent ProductScreenintent = new Intent(MainActivity.this, ProductScreen.class);
+                startActivity(ProductScreenintent);
             }
         });
     }
-
-    // Function
-    public void openRegister(){
-        Intent intent = new Intent(this, Register.class);
-        startActivity(intent);
-        }
-
-    public void openLoggedIn(){
-        Intent intent2 = new Intent(this, ProductScreen.class);
-        startActivity(intent2);
-    }
-    }
+}
