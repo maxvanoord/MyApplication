@@ -11,4 +11,14 @@
     <string name="repeat_password">Repeat Password:</string>
     <string name="create_account_button">create account</string>
     <string name="droneInPage">Drone</string>
+    <string name="use_your_school_e_mail">* use your school e-mail</string>
+    <string name="contact">Contact</string>
+    <string name="openingstijden">
+        Openingstijden:"\n"
+        Maandag CSAR: 10:30 - 17:00"\n"
+        Dinsdag peercoaches: 10:30 - 15:50"\n"
+        Woensdag peercoaches: 10:30 - 15:50"\n"
+        Donderdag CSAR: 10:30 - 17:00"\n"
+        Lokaal WD.04.022</string>
+    <string name="contact_info"><![CDATA[Contact & Info]]></string>
 </resources>

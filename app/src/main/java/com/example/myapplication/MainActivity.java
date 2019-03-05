@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity{
 
     TextView button_register;
     Button button_login;
+    Button button_contact;
     EditText input_username;
     EditText input_password;
 
@@ -25,8 +26,16 @@ public class MainActivity extends AppCompatActivity{
         button_login = findViewById(R.id.LoginButton);
         input_username = findViewById(R.id.StudentnummerText);
         input_password = findViewById(R.id.WachtwoordText);
+        button_contact = findViewById(R.id.ContactButton);
 
         // build in method to assign a action to a button-press
+        button_contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Activity_contactintent = new Intent(MainActivity.this, contact.class);
+                startActivity(Activity_contactintent);
+            }
+        });
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
