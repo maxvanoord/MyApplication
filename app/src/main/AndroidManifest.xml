@@ -19,6 +19,7 @@
         <activity android:name=".Register" />
         <activity android:name=".ProductScreen" />
         <activity android:name=".DroneScreen" />
+        <activity android:name=".LeenActivity"/>
     </application>
 
 </manifest>
