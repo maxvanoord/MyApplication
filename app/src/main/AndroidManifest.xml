@@ -21,6 +21,7 @@
         <activity android:name=".DroneScreen" />
         <activity android:name=".LeenActivity"/>
         <activity android:name=".LeenBevestiging"/>
+        <activity android:name=".BestellingGeslaagd"/>
     </application>
 
 </manifest>
