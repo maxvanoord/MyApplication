@@ -20,6 +20,7 @@
         Woensdag peercoaches: 10:30 - 15:50"\n"
         Donderdag CSAR: 10:30 - 17:00"\n"
         Lokaal WD.04.022</string>
+
     <string name="contact_info"><![CDATA[Contact & Info]]></string>
     <string name="don_t_have_an_account">Don't have an account?</string>
     <string name="login">Login</string>
@@ -33,5 +34,7 @@
         <item>Camera</item>
         <item>Wii console</item>
     </string-array>
+
+
 
 </resources>
