@@ -21,4 +21,7 @@
         Donderdag CSAR: 10:30 - 17:00"\n"
         Lokaal WD.04.022</string>
     <string name="contact_info"><![CDATA[Contact & Info]]></string>
+    <string name="sign_up">Sign up</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="login">login</string>
 </resources>
