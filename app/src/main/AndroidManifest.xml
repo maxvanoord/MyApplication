@@ -20,6 +20,7 @@
         <activity android:name=".ProductScreen" />
         <activity android:name=".DroneScreen" />
         <activity android:name=".LeenActivity"/>
+        <activity android:name=".LeenBevestiging"/>
     </application>
 
 </manifest>
