@@ -14,13 +14,13 @@ public class BestellingGeslaagd extends Activity{
         setContentView(R.layout.bestellinggeslaagd);
 
 
-        Button buttonhome1 = findViewById(R.id.buttonhome);
+        Button buttonhome = findViewById(R.id.buttonhome);
 
-        buttonhome1.setOnClickListener(new View.OnClickListener() {
+        buttonhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentbevestig = new Intent(BestellingGeslaagd.this, ProductScreen.class);
-                startActivity(intentbevestig);
+                Intent intent = new Intent(BestellingGeslaagd.this, ProductScreen.class);
+                startActivity(intent);
             }
         });
     }
