@@ -20,7 +20,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDronemenu"
         tools:layout_conversion_absoluteHeight="100dp"
-        tools:layout_conversion_absoluteWidth="367dp" />
+        tools:layout_conversion_absoluteWidth="367dp"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/textViewDronemenu"
@@ -37,5 +38,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="349dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/drone_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/droneImagePage" />
+
+    <ImageView
+        android:id="@+id/shoppingcart"
+        android:layout_width="120dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:srcCompat="@drawable/shopping_cart" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="206dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Klik op het winkelmantje om het product toe te voegen aan je bestelling"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
 </android.support.constraint.ConstraintLayout>
