@@ -33,6 +33,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/droneInPage"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +50,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/drone_info"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.19"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +69,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
-        app:srcCompat="@drawable/shopping_cart"
+        android:src="@drawable/shopping_cart"
         android:contentDescription="TODO" />
 
     <TextView
@@ -80,6 +82,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Klik op het winkelmantje om het product toe te voegen aan je bestelling"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

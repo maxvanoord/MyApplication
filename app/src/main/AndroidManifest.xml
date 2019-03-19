@@ -8,7 +8,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".contact"></activity>
+        <activity android:name=".AccountAanmakenGeslaagd"></activity>
+        <activity android:name=".contact" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,13 +20,13 @@
         <activity android:name=".Register" />
         <activity android:name=".ProductScreen" />
         <activity android:name=".DroneScreen" />
-        <activity android:name=".LeenActivity"/>
-        <activity android:name=".LeenBevestiging"/>
-        <activity android:name=".BestellingGeslaagd"/>
-        <activity android:name=".BeheerderOverzicht"/>
-        <activity android:name=".Beheerder"/>
-        <activity android:name=".ReportsBeheerder"/>
-        <activity android:name=".AdminLayout"/>
+        <activity android:name=".LeenActivity" />
+        <activity android:name=".LeenBevestiging" />
+        <activity android:name=".BestellingGeslaagd" />
+        <activity android:name=".BeheerderOverzicht" />
+        <activity android:name=".Beheerder" />
+        <activity android:name=".ReportsBeheerder" />
+        <activity android:name=".AdminLayout" />
     </application>
 
 </manifest>

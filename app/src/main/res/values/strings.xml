@@ -29,6 +29,8 @@
     <string name="drone_info">
         Uitleenperiode drone: maximaal 1 dag"\n"
         LET OP: IN ROTTERDAM GELDT EEN NO FLY ZONE!</string>
+    <string name="aanmaken_account">Aanmaken account</string>
+    <string name="inloggegevens">Hierbij een bevestiging van het aanmaken van je account. Je kunt nu met je inloggegevens inloggen.</string>
 
     <string-array name="Leenlijst">
         <item>*niks*</item>
@@ -38,7 +40,6 @@
         <item>Camera</item>
         <item>Wii console</item>
     </string-array>
-
 
 
 </resources>
