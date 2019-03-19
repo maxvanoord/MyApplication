@@ -21,7 +21,8 @@ public class contact extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent Homescreenintent = new Intent(contact.this, MainActivity.class);
-                startActivity(MainActivity);
-            });
-    });
+                startActivity(Homescreenintent);
+            }
+        });
+    }
 }

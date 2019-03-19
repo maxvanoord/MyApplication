@@ -36,5 +36,6 @@ public class LeenActivity extends Activity{
 
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
     }
 }
