@@ -1,32 +1,19 @@
 package com.example.myapplication;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 
-public class LeenActivity extends Activity{
-
+public class BeheerderOverzicht extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.leenscherm);
+        setContentView(R.layout.beheerderoverzicht);
 
-        Spinner spinner = findViewById(R.id.productlenenspinner);
-        Button bevestigbutton = findViewById(R.id.leenbevestigingbutton);
 
-        bevestigbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LeenActivity.this, LeenBevestiging.class);
-                startActivity(intent);
-            }
-        });
-
+        Spinner spinner = findViewById(R.id.beheerderoverzichtspinner);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.Leenlijst, android.R.layout.simple_spinner_item);
@@ -38,4 +25,5 @@ public class LeenActivity extends Activity{
         spinner.setAdapter(adapter);
 
     }
+
 }
