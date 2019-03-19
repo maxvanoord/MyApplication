@@ -26,6 +26,9 @@
     <string name="login">Login</string>
     <string name="sign_up">Sign up</string>
     <string name="homescreen">Homescreen</string>
+    <string name="drone_info">
+        Uitleenperiode drone: maximaal 1 dag"\n"
+        LET OP: IN ROTTERDAM GELDT EEN NO FLY ZONE!</string>
 
     <string-array name="Leenlijst">
         <item>*niks*</item>
