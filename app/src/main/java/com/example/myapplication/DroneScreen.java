@@ -20,7 +20,7 @@ public class DroneScreen extends Activity{
         shopping_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent shoppingcartIntent = new Intent(DroneScreen.this, BestellingGeslaagd.class);
+                Intent shoppingcartIntent = new Intent(DroneScreen.this, LeenBevestiging.class);
                 startActivity(shoppingcartIntent);
             }
         });

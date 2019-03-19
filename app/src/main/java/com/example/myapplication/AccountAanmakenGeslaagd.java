@@ -16,7 +16,7 @@ public class AccountAanmakenGeslaagd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_aanmaken_geslaagd);
 
-        Homescreen = findViewById(R.id.homescreen);
+        Homescreen = findViewById(R.id.homescreen2);
 
         Homescreen.setOnClickListener(new View.OnClickListener() {
             @Override

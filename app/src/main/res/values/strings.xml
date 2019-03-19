@@ -25,12 +25,13 @@
     <string name="don_t_have_an_account">Dont have an account?</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign up</string>
-    <string name="homescreen">Homescreen</string>
+    <string name="homescreen">Home</string>
     <string name="drone_info">
         Uitleenperiode drone: maximaal 1 dag"\n"
         LET OP: IN ROTTERDAM GELDT EEN NO FLY ZONE!</string>
     <string name="aanmaken_account">Aanmaken account</string>
     <string name="inloggegevens">Hierbij een bevestiging van het aanmaken van je account. Je kunt nu met je inloggegevens inloggen.</string>
+    <string name="vragen">Voor vragen of opmerkingen kan er een mail gestuurd worden naar: techlab@csarotterdam.nl</string>
 
     <string-array name="Leenlijst">
         <item>*niks*</item>
