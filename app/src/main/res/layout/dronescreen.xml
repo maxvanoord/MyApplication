@@ -67,7 +67,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
-        app:srcCompat="@drawable/shopping_cart" />
+        app:srcCompat="@drawable/shopping_cart"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/textView16"
