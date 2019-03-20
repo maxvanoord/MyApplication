@@ -18,6 +18,7 @@
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:text="Books"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -45,9 +46,11 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="80dp"
-        android:src="@drawable/drone"
+        android:src="@drawable/drone2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3" />
+        app:layout_constraintTop_toBottomOf="@+id/divider3"
+        tools:src="@drawable/drone2"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/textView"
@@ -73,6 +76,7 @@
         android:layout_marginLeft="44dp"
         android:layout_marginBottom="8dp"
         android:text="Tools"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/Drone"
         app:layout_constraintStart_toStartOf="parent" />
@@ -85,6 +89,7 @@
         android:layout_marginLeft="44dp"
         android:layout_marginTop="44dp"
         android:text="Games"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Drone" />
@@ -112,9 +117,10 @@
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="23dp"
-        android:src="@drawable/books"
+        android:src="@drawable/books2"
         app:layout_constraintStart_toEndOf="@+id/Drone"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:src="@drawable/books2" />
 
     <TextView
         android:id="@+id/textView2"
@@ -124,6 +130,7 @@
         android:layout_marginLeft="96dp"
         android:layout_marginTop="60dp"
         android:text="Computers"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:textSize="24sp" />
@@ -132,22 +139,24 @@
         android:id="@+id/imageView2"
         android:layout_width="95dp"
         android:layout_height="86dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginTop="38dp"
-        android:src="@drawable/computer"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/pc2"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:src="@drawable/pc2" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="134dp"
         android:layout_height="64dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="53dp"
-        android:src="@drawable/ps4"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/playstation_4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        tools:src="@drawable/playstation_4" />
 
 </android.support.constraint.ConstraintLayout>
