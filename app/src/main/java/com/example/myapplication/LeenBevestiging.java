@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class LeenBevestiging extends AppCompatActivity {
 
-    TextView textproduct = findViewById(R.id.productopoverzicht);
+//    TextView textproduct = findViewById(R.id.productopoverzicht);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
