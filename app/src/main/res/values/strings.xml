@@ -32,6 +32,7 @@
     <string name="aanmaken_account">Aanmaken account</string>
     <string name="inloggegevens">Hierbij een bevestiging van het aanmaken van je account. Je kunt nu met je inloggegevens inloggen.</string>
     <string name="vragen">Voor vragen of opmerkingen kan er een mail gestuurd worden naar: techlab@csarotterdam.nl</string>
+    <string name="ingelogd_blijven">Ingelogd blijven?</string>
 
     <string-array name="Leenlijst">
         <item>*niks*</item>
