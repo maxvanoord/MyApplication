@@ -14,7 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
+<<<<<<< HEAD
         android:layout_marginTop="92dp"
+=======
+        android:layout_marginTop="108dp"
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:text="Books"
@@ -31,7 +35,11 @@
         android:layout_height="113dp"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
+<<<<<<< HEAD
         android:layout_marginTop="144dp"
+=======
+        android:layout_marginTop="148dp"
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
         android:contentDescription="TODO"
         android:src="@drawable/drone2"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+<<<<<<< HEAD
         android:layout_marginTop="52dp"
+=======
+        android:layout_marginTop="36dp"
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Products"
@@ -52,7 +64,11 @@
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="0.497"
+=======
+        app:layout_constraintHorizontal_bias="0.502"
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
@@ -74,7 +90,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
+<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.906" />
+=======
+        app:layout_constraintVertical_bias="0.947" />
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
 
     <TextView
         android:id="@+id/textView7"
