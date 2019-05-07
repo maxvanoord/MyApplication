@@ -14,14 +14,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
+<<<<<<< HEAD
+        android:layout_marginTop="92dp"
+=======
         android:layout_marginTop="108dp"
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:text="Books"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -31,7 +35,11 @@
         android:layout_height="113dp"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
+<<<<<<< HEAD
+        android:layout_marginTop="144dp"
+=======
         android:layout_marginTop="148dp"
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
         android:contentDescription="TODO"
         android:src="@drawable/drone2"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+<<<<<<< HEAD
+        android:layout_marginTop="52dp"
+=======
         android:layout_marginTop="36dp"
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Products"
@@ -52,7 +64,11 @@
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
+        app:layout_constraintHorizontal_bias="0.497"
+=======
         app:layout_constraintHorizontal_bias="0.502"
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +90,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
+<<<<<<< HEAD
+        app:layout_constraintVertical_bias="0.906" />
+=======
         app:layout_constraintVertical_bias="0.947" />
+>>>>>>> b56bbfcbbb3ce94db5e1d55764c187e1e8fe61dc
 
     <TextView
         android:id="@+id/textView7"
@@ -82,14 +102,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Games"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Drone" />
 
@@ -126,13 +146,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Computers"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:textSize="24sp" />
@@ -159,7 +179,7 @@
         android:layout_height="64dp"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:src="@drawable/playstation_4"
