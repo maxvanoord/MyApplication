@@ -12,8 +12,8 @@
         android:id="@+id/textView4"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="213dp" />
 <<<<<<< HEAD
         android:layout_marginTop="92dp"
 =======
@@ -33,8 +33,8 @@
         android:id="@+id/Drone"
         android:layout_width="108dp"
         android:layout_height="113dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="241dp" />
 <<<<<<< HEAD
         android:layout_marginTop="144dp"
 =======
@@ -90,6 +90,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
 <<<<<<< HEAD
         app:layout_constraintVertical_bias="0.906" />
 =======
@@ -102,14 +103,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="144dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Games"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Drone" />
 
@@ -119,12 +120,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="316dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Lenen"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -132,9 +134,9 @@
         android:id="@+id/imageView"
         android:layout_width="94dp"
         android:layout_height="82dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/books2"
         app:layout_constraintStart_toEndOf="@+id/Drone"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -146,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Computers"
@@ -163,12 +165,12 @@
         android:layout_height="86dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:src="@drawable/pc2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:src="@drawable/pc2" />
@@ -179,7 +181,7 @@
         android:layout_height="64dp"
         android:layout_marginStart="52dp"
         android:layout_marginLeft="52dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:src="@drawable/playstation_4"
