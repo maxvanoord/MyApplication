@@ -3,10 +3,12 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -15,6 +17,38 @@ public class MainActivity extends AppCompatActivity{
     Button button_contact;
     EditText input_username;
     EditText input_password;
+    DatabaseHelper helper = new DatabaseHelper(this);
+
+    public void onButtonClick(View v)
+    {
+        if (v.getId() == R.id.LoginButton)
+        {
+            EditText a = (EditText) findViewById(R.id.username_create);
+            String str = a.getText().toString();
+            EditText b = (EditText) findViewById(R.id.password_create);
+            String pass = b.getText().toString();
+
+            String password = helper.searchPass(str);
+            if(pass.equals(password))
+            {
+                Intent i = new Intent(MainActivity.this, Display.class);
+                i.putExtra("Username",str);
+                startActivity(i);
+            }
+            else
+            {
+                Toast temp = Toast.makeText(MainActivity.this , "Username and password don't match" , Toast.LENGTH_SHORT);
+                temp.show();
+            }
+
+        }
+        if(v.getId() == R.id.button_createaccount)
+        {
+            Intent i = new Intent(MainActivity.this, Register.class);
+
+            startActivity(i);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
