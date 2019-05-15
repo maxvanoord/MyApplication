@@ -3,7 +3,6 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,15 +22,17 @@ public class MainActivity extends AppCompatActivity{
     {
         if (v.getId() == R.id.LoginButton)
         {
-            EditText a = (EditText) findViewById(R.id.username_create);
+            EditText a = findViewById(R.id.username_create);
             String str = a.getText().toString();
-            EditText b = (EditText) findViewById(R.id.password_create);
+            EditText b = findViewById(R.id.password_create);
             String pass = b.getText().toString();
 
             String password = helper.searchPass(str);
+
+
             if(pass.equals(password))
             {
-                Intent i = new Intent(MainActivity.this, Display.class);
+                Intent i = new Intent(MainActivity.this, ProductScreen.class);
                 i.putExtra("Username",str);
                 startActivity(i);
             }

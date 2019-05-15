@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -53,8 +54,10 @@ public class Register extends Activity {
                 c.setUsername(usernamestr);
                 c.setEmail(emailstr);
                 c.setPassword(pass1str);
-
                 helper.insertContact(c);
+
+                Intent x = new Intent(Register.this, AccountAanmakenGeslaagd.class);
+                startActivity(x);
             }
 
         }
