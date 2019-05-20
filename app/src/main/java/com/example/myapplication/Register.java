@@ -34,30 +34,44 @@ public class Register extends Activity {
 
         if(v.getId()== R.id.button_createaccount)
         {
-            EditText username = findViewById(R.id.username_create);
+            EditText username = findViewById(R.id.username_create); // hier haal je de opgegeven data uit de tekstblokken
             EditText email = findViewById(R.id.email_create);
             EditText pass1 = findViewById(R.id.password_create);
             EditText pass2 = findViewById(R.id.repeatpassword_create);
 
-            String usernamestr = username.getText().toString();
+            String usernamestr = username.getText().toString();     // hier maak je van die data strings
             String emailstr = email.getText().toString();
             String pass1str = pass1.getText().toString();
             String pass2str = pass2.getText().toString();
 
-            if(!pass1str.equals(pass2str))
-            {
-                Toast pass = Toast.makeText(Register.this , "Passwords don't match" , Toast.LENGTH_SHORT);
-                pass.show();
+            Boolean x = true;
+            Boolean y = true;
+
+            if (usernamestr.equals("")||emailstr.equals("")||pass1str.equals("")){
+                Toast leeg = Toast.makeText(Register.this, "Verplichte velden mogen niet leeg zijn", Toast.LENGTH_SHORT);
+                leeg.show();
+                x = false;
             }
-            else {
-                Contact_Database c = new Contact_Database();
+
+            if(!pass1str.equals(pass2str))                          // hier check je of de 2 passwords hetzelfde zijn
+            {
+                Toast pass = Toast.makeText(Register.this , "Wachtwoorden komen niet overeen" , Toast.LENGTH_SHORT); // popup als ze niet hetzelfde zijn
+                pass.show();
+                y = false;
+            }
+
+            if(x&&y) {
+                Contact_Database c = new Contact_Database();        // hier word een nieuw object aangemaakt en toegevoegd aan de db
                 c.setUsername(usernamestr);
                 c.setEmail(emailstr);
                 c.setPassword(pass1str);
                 helper.insertContact(c);
 
-                Intent x = new Intent(Register.this, AccountAanmakenGeslaagd.class);
-                startActivity(x);
+                Toast correct = Toast.makeText(Register.this, "Account is aangemaakt", Toast.LENGTH_SHORT);
+                correct.show();
+
+                Intent xy = new Intent(Register.this, MainActivity.class);
+                startActivity(xy);
             }
 
         }
