@@ -36,9 +36,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();                // Openen van de database
         ContentValues values = new ContentValues();
 
+
         String query =  "select * from contacts";
         Cursor cursor = db.rawQuery(query, null);
         int count = cursor.getCount();                  // Count wordt gebruikt om te tellen welk id de colum moet krijgen
+
 
         values.put(COLUMN_ID, count);                   // values wordt een een tuple met (COLUMN_ID = count, ...)
         values.put(COLUMN_NAME , c.getUsername());
@@ -53,61 +55,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-
-
-//    public Boolean checkUserExistance(String given_username)
-//    {
-//        db = this.getReadableDatabase();
-//
-//        String query = "select username from contacts";
-//        Cursor c = db.rawQuery(query,null);
-//
-//        int i = 0;
-//        if (c.getCount() > 0)
-//        {
-//            c.moveToFirst();
-//            do {
-//                id[i] = c.getInt(c.getColumnIndex("field_name"));
-//                i++;
-//            } while (c.moveToNext());
-//            c.close();
-//        }
-//
-//    }
-
-
     public Boolean checkMail(String given_mail){
         db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * from user where email=?", new String[]{given_mail});
+
+        Cursor cursor = db.rawQuery("Select * from contacts where email=?", new String[]{given_mail});
         if (cursor.getCount()>0) return false;
         else return true;
     }
 
 
 
-
-
-    public String searchPass(String username)
-    {
+    public Boolean checkMatch(String username1, String password){
         db = this.getReadableDatabase();
-        String query = "select username, pass from "+TABLE_NAME + "where username ='" + username + "'";
-        Cursor cursor = db.rawQuery(query, null);
-        String a, b;
-        b = "not found";
-        if(cursor.moveToFirst())
-        {
-            do{
-                a = cursor.getString(0);
 
-                if(a.equals(username))
-                {
-                    b = cursor.getString(1);
-                    break;
-                }
-            }
-            while(cursor.moveToNext());
-        }
-        return null;
+        Cursor cursor = db.rawQuery("select * from contacts where name=? and pass=?", new String[]{username1, password});
+        if (cursor.getCount()>0) return true;
+        else return false;
     }
 
 

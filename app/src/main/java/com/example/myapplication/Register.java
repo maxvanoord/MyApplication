@@ -47,6 +47,8 @@ public class Register extends Activity {
             Boolean x = true;
             Boolean y = true;
 
+            Boolean checkE = helper.checkMail(emailstr);
+
             if (usernamestr.equals("")||emailstr.equals("")||pass1str.equals("")){
                 Toast leeg = Toast.makeText(Register.this, "Verplichte velden mogen niet leeg zijn", Toast.LENGTH_SHORT);
                 leeg.show();
@@ -60,7 +62,9 @@ public class Register extends Activity {
                 y = false;
             }
 
-            if(x&&y) {
+
+
+            if(x&&y&&checkE) {
                 Contact_Database c = new Contact_Database();        // hier word een nieuw object aangemaakt en toegevoegd aan de db
                 c.setUsername(usernamestr);
                 c.setEmail(emailstr);

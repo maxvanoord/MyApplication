@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity{
     DatabaseHelper helper = new DatabaseHelper(this);
 
     public void onButtonClick(View v)
+
     {
         if (v.getId() == R.id.LoginButton) {
 
@@ -21,28 +23,20 @@ public class MainActivity extends AppCompatActivity{
             String input_U = input_username.getText().toString();
             String input_P = input_password.getText().toString();
 
+            Boolean checkData = helper.checkMatch(input_U, input_P);
 
-//            if(helper.CheckUserExistence(input_U))
-//            {
-//                user = helper.GetUser(enteredUser);
-//                if(pass.equals(password))
-//                {
-//                    Intent i = new Intent(MainActivity.this, ProductScreen.class);
-//                    i.putExtra("Username",str);
-//                    startActivity(i);
-//                }
-//                else
-//                {
-//                    Toast temp = Toast.makeText(MainActivity.this , "Opgegeven account bestaat niet" , Toast.LENGTH_SHORT);
-//                    temp.show();
-//                }
-//            }
-//            else{
-//                Toast noEx = Toast.makeText(MainActivity.this, "Opgegeven account bestaat niet", Toast.LENGTH_SHORT);
-//                noEx.show();
-//            }
+            if(checkData){
+                Intent i = new Intent(MainActivity.this, ProductScreen.class);
+                startActivity(i);
 
+                Toast ingelogd = Toast.makeText(MainActivity.this , "Succesvol ingelogd!" , Toast.LENGTH_SHORT);
+                ingelogd.show();
+            }
 
+            else {
+                Toast nieting = Toast.makeText(MainActivity.this , "Gebruikersnaam en wachtwoord komen niet overeen" , Toast.LENGTH_SHORT);
+                nieting.show();
+            }
         }
     }
 
