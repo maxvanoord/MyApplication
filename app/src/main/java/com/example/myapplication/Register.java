@@ -48,6 +48,7 @@ public class Register extends Activity {
             Boolean y = true;
 
             Boolean checkE = helper.checkMail(emailstr);
+            Boolean checkU = helper.checkUsername(usernamestr);
 
             if (usernamestr.equals("")||emailstr.equals("")||pass1str.equals("")){
                 Toast leeg = Toast.makeText(Register.this, "Verplichte velden mogen niet leeg zijn", Toast.LENGTH_SHORT);
@@ -55,7 +56,7 @@ public class Register extends Activity {
                 x = false;
             }
 
-            if(!pass1str.equals(pass2str))                          // hier check je of de 2 passwords hetzelfde zijn
+            if (!pass1str.equals(pass2str))                          // hier check je of de 2 passwords hetzelfde zijn
             {
                 Toast pass = Toast.makeText(Register.this , "Wachtwoorden komen niet overeen" , Toast.LENGTH_SHORT); // popup als ze niet hetzelfde zijn
                 pass.show();
@@ -63,19 +64,26 @@ public class Register extends Activity {
             }
 
 
+            if(x&&y) {
+                if (checkE&&checkU) {
 
-            if(x&&y&&checkE) {
-                Contact_Database c = new Contact_Database();        // hier word een nieuw object aangemaakt en toegevoegd aan de db
-                c.setUsername(usernamestr);
-                c.setEmail(emailstr);
-                c.setPassword(pass1str);
-                helper.insertContact(c);
+                    Contact_Database c = new Contact_Database();        // hier word een nieuw object aangemaakt en toegevoegd aan de db
+                    c.setUsername(usernamestr);
+                    c.setEmail(emailstr);
+                    c.setPassword(pass1str);
+                    helper.insertContact(c);
 
-                Toast correct = Toast.makeText(Register.this, "Account is aangemaakt", Toast.LENGTH_SHORT);
-                correct.show();
+                    Toast correct = Toast.makeText(Register.this, "Account is aangemaakt", Toast.LENGTH_SHORT);
+                    correct.show();
 
-                Intent xy = new Intent(Register.this, MainActivity.class);
-                startActivity(xy);
+                    Intent xy = new Intent(Register.this, MainActivity.class);
+                    startActivity(xy);
+                }
+
+                else{
+                    Toast gebruik = Toast.makeText(Register.this , "Gegevens zijn al in gebruik" , Toast.LENGTH_SHORT); // popup als ze niet hetzelfde zijn
+                    gebruik.show();
+                }
             }
 
         }

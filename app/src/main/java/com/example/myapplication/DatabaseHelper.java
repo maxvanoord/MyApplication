@@ -63,6 +63,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return true;
     }
 
+    public Boolean checkUsername(String given_username){
+        db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("Select * from contacts where name=?", new String[]{given_username});
+        if (cursor.getCount()>0) return false;
+        else return true;
+    }
+
 
 
     public Boolean checkMatch(String username1, String password){
