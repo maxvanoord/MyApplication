@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 
 public class LeenActivity extends Activity{
 
@@ -14,9 +12,8 @@ public class LeenActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.leenscherm);
+        setContentView(R.layout.datakiezerbestelling);
 
-        Spinner spinner = findViewById(R.id.productlenenspinner);
         Button bevestigbutton = findViewById(R.id.leenbevestigingbutton);
 
         bevestigbutton.setOnClickListener(new View.OnClickListener() {
@@ -28,14 +25,6 @@ public class LeenActivity extends Activity{
         });
 
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.Leenlijst, android.R.layout.simple_spinner_item);
-
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
 
     }
 }

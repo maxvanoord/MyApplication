@@ -22,7 +22,6 @@
         <activity android:name=".DroneScreen" />
         <activity android:name=".LeenActivity" />
         <activity android:name=".LeenBevestiging" />
-        <activity android:name=".BestellingGeslaagd" />
         <activity android:name=".BeheerderOverzicht" />
         <activity android:name=".Beheerder" />
         <activity android:name=".ReportsBeheerder" />
