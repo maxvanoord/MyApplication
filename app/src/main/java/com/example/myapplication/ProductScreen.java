@@ -20,7 +20,7 @@ public class ProductScreen extends Activity{
         setContentView(R.layout.productscreen);
 
         drone = findViewById(R.id.Drone);
-        shopCart = findViewById(R.id.shopCartProductScreen);
+        shopCart = findViewById(R.id.shopCartGamesScreen);
         books = findViewById(R.id.booksimg);
         games = findViewById(R.id.gamesimg);
         computers = findViewById(R.id.computersimg);
@@ -47,6 +47,22 @@ public class ProductScreen extends Activity{
             public void onClick(View v) {
                 Intent goToBooks = new Intent(ProductScreen.this, BooksScreen.class);
                 startActivity(goToBooks);
+            }
+        });
+
+        games.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToGames = new Intent(ProductScreen.this, GamesScreen.class);
+                startActivity(goToGames);
+            }
+        });
+
+        computers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToPcs = new Intent(ProductScreen.this, ComputersScreen.class);
+                startActivity(goToPcs);
             }
         });
 

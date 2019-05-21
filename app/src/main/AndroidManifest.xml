@@ -29,6 +29,8 @@
         <activity android:name=".AdminLayout" />
         <activity android:name=".Winkelmandje" />
         <activity android:name=".BooksScreen" />
+        <activity android:name=".GamesScreen" />
+        <activity android:name=".ComputersScreen" />
     </application>
 
 </manifest>
