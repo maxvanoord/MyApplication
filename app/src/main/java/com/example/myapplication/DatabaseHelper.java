@@ -81,6 +81,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return false;
     }
 
+    public void eraseTable(){           // deze functie kan worden opgeroepen om een table te legen
+        db = this.getReadableDatabase();
+        db.execSQL("delete from contacts");
+    }
+
 
 
 

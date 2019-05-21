@@ -90,8 +90,8 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_width="155dp"
+        android:layout_height="30dp"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
         android:layout_marginTop="24dp"
@@ -103,18 +103,18 @@
 
     <TextView
         android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
+        android:onClick="onRegisterClick"
         android:text="@string/sign_up"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
         android:textStyle="italic"
-        android:onClick="onRegisterClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView8"

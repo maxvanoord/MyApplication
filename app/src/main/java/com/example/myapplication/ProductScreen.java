@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class ProductScreen extends Activity{
 
     ImageView drone;
-    Button lenen;
+    ImageView shopCart;
+    ImageView books;
+    ImageView games;
+    ImageView computers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +20,19 @@ public class ProductScreen extends Activity{
         setContentView(R.layout.productscreen);
 
         drone = findViewById(R.id.Drone);
-        lenen = findViewById(R.id.leenbutton);
+        shopCart = findViewById(R.id.shopCartProductScreen);
+        books = findViewById(R.id.booksimg);
+        games = findViewById(R.id.gamesimg);
+        computers = findViewById(R.id.computersimg);
+
+
+        shopCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToShop = new Intent(ProductScreen.this, Winkelmandje.class);
+                startActivity(goToShop);
+            }
+        });
 
         drone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,13 +42,16 @@ public class ProductScreen extends Activity{
             }
         });
 
-        lenen.setOnClickListener(new View.OnClickListener() {
+        books.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent lenenIntent = new Intent(ProductScreen.this, LeenActivity.class);
-                startActivity(lenenIntent);
+                Intent goToBooks = new Intent(ProductScreen.this, BooksScreen.class);
+                startActivity(goToBooks);
             }
         });
+
+
+
 
 
     }

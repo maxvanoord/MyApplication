@@ -27,6 +27,8 @@
         <activity android:name=".Beheerder" />
         <activity android:name=".ReportsBeheerder" />
         <activity android:name=".AdminLayout" />
+        <activity android:name=".Winkelmandje" />
+        <activity android:name=".BooksScreen" />
     </application>
 
 </manifest>

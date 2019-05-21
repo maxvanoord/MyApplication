@@ -84,10 +84,11 @@ public class Register extends Activity {
                     Toast gebruik = Toast.makeText(Register.this , "Gegevens zijn al in gebruik" , Toast.LENGTH_SHORT); // popup als ze niet hetzelfde zijn
                     gebruik.show();
                 }
+
             }
 
         }
 
-
     }
+
 }
