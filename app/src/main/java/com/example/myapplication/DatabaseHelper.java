@@ -11,8 +11,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "contacts.db";
 
-    private static final String TABLE_USERS = "contacts";
     private static final String COLUMN_ID = "id";
+
+    private static final String TABLE_USERS = "contacts";
     private static final String COLUMN_NAME_U = "name";
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_PASS = "pass";
@@ -21,13 +22,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME_P = "name";
     private static final String COLUMN_STOCK = "stock";
     private static final String COLUMN_CATEGORIE = "categorie";
+
     SQLiteDatabase db;
 
     private static final String TABLE_CREATE_USERS = "create table contacts (id integer primary key not null , " +
-            "nameu text not null , email text not null , pass text not null);";
+            "name text not null , email text not null , pass text not null);";
 
     private static final String TABLE_CREATE_PRODUCTS = "create table products (id integer primary key not null , " +
-            "namep text not null , stock integer , categorie text not null);";
+            "name text not null , stock integer , categorie text not null);";
 
 
     public DatabaseHelper(Context context)
@@ -47,9 +49,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
+
         String query =  "select * from products";
         Cursor cursor = db.rawQuery(query, null);
         int count = cursor.getCount();
+
 
         values.put(COLUMN_ID, count);                   // values wordt een een tuple met (COLUMN_ID = count, ...)
         values.put(COLUMN_NAME_P , c.getName());
