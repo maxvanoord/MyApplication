@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity{
         if (v.getId() == R.id.ContactButton) {
             Intent x = new Intent(MainActivity.this, contact.class);
             startActivity(x);
-
         }
     }
 
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity{
         if (v.getId() == R.id.AdminButton) {
             Intent y = new Intent(MainActivity.this, AdminLayout.class);
             startActivity(y);
-
         }
     }
 
@@ -72,6 +70,5 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 }
