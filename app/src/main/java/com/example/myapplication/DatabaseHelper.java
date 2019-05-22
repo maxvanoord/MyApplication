@@ -10,15 +10,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "contacts.db";
-    private static final String TABLE_NAME = "contacts";
+
     private static final String COLUMN_ID = "id";
-    private static final String COLUMN_NAME = "name";
+
+    private static final String TABLE_USERS = "contacts";
+    private static final String COLUMN_NAME_U = "name";
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_PASS = "pass";
+
+    private static final String TABLE_PRODUCTS = "products";
+    private static final String COLUMN_NAME_P = "name";
+    private static final String COLUMN_STOCK = "stock";
+    private static final String COLUMN_CATEGORIE = "categorie";
+
     SQLiteDatabase db;
 
-    private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " +
+    private static final String TABLE_CREATE_USERS = "create table contacts (id integer primary key not null , " +
             "name text not null , email text not null , pass text not null);";
+
+    private static final String TABLE_CREATE_PRODUCTS = "create table products (id integer primary key not null , " +
+            "name text not null , stock integer , categorie text not null);";
 
 
     public DatabaseHelper(Context context)
@@ -28,9 +39,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(TABLE_CREATE);
+        db.execSQL(TABLE_CREATE_USERS);
+        db.execSQL(TABLE_CREATE_PRODUCTS);
         this.db = db;
     }
+
+
+    public void insertProduct(Product_Database c){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+
+        String query =  "select * from products";
+        Cursor cursor = db.rawQuery(query, null);
+        int count = cursor.getCount();
+
+
+        values.put(COLUMN_ID, count);                   // values wordt een een tuple met (COLUMN_ID = count, ...)
+        values.put(COLUMN_NAME_P , c.getName());
+        values.put(COLUMN_STOCK , c.getStock());
+        values.put(COLUMN_CATEGORIE , c.getCategorie());
+
+        db.insert(TABLE_PRODUCTS,null,values);  // van tuple values wordt een object aan de table name gevoegd
+        db.close();
+
+    }
+
 
     public void insertContact(Contact_Database c) {     // Functie om een contact toe te voegen in de database
         db = this.getWritableDatabase();                // Openen van de database
@@ -43,16 +77,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         values.put(COLUMN_ID, count);                   // values wordt een een tuple met (COLUMN_ID = count, ...)
-        values.put(COLUMN_NAME , c.getUsername());
+        values.put(COLUMN_NAME_U , c.getUsername());
         values.put(COLUMN_EMAIL , c.getEmail());
         values.put(COLUMN_PASS , c.getPassword());
 
-        db.insert(TABLE_NAME,null,values);  // van tuple values wordt een object aan de table name gevoegd
+        db.insert(TABLE_USERS,null,values);  // van tuple values wordt een object aan de table name gevoegd
         db.close();
     }
-
-
-
 
 
     public Boolean checkMail(String given_mail){
@@ -71,8 +102,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return true;
     }
 
-
-
     public Boolean checkMatch(String username1, String password){
         db = this.getReadableDatabase();
 
@@ -80,6 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.getCount()>0) return true;
         else return false;
     }
+
 
     public void eraseTable(){           // deze functie kan worden opgeroepen om een table te legen
         db = this.getReadableDatabase();
@@ -91,8 +121,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String query = "DROP TABLE IF EXISTS "+TABLE_NAME;
-        db.execSQL(query);
-        this.onCreate(db);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
+
+        onCreate(db);
     }
 }
