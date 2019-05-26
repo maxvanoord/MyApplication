@@ -20,12 +20,13 @@ public class AdminAddProducts extends Activity implements OnItemSelectedListener
 
             EditText input_name = findViewById(R.id.tekstInputNaam);
             EditText input_stock = findViewById(R.id.tekstInputVoorraad);
-            EditText input_catg = findViewById(R.id.tekstInputCategorie);
+//            EditText input_catg = findViewById(R.id.tekstInputCategorie);
+            Spinner spinner = findViewById(R.id.choose_categorie);
 
             String name_str = input_name.getText().toString();
             String stock_str = input_stock.getText().toString();
             int stock_int = Integer.parseInt(stock_str);
-            String cat_str = input_catg.getText().toString();
+            String cat_str = spinner.getSelectedItem().toString();
 
             Product_Database c = new Product_Database();        // hier word een nieuw object aangemaakt en toegevoegd aan de db
             c.setName(name_str);
