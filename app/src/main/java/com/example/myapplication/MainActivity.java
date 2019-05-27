@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         if (v.getId() == R.id.ContactButton) {
             Intent x = new Intent(MainActivity.this, contact.class);
             startActivity(x);
+
         }
     }
 
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(y);
         }
     }
-
 
 
 
