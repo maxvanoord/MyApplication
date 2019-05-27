@@ -24,8 +24,26 @@ public class MainActivity extends AppCompatActivity {
             String input_P = input_password.getText().toString();
 
             Boolean checkData = helper.checkMatch(input_U, input_P);
+            Boolean checkAdmin = helper.checkAdmin(input_U, input_P);
+            Boolean checkBeheerder = helper.checkBeheerder(input_U, input_P);
 
-            if(checkData){
+            if(checkAdmin){
+                Intent in = new Intent(MainActivity.this, AdminLayout.class);
+                startActivity(in);
+
+                Toast ingelogdA = Toast.makeText(MainActivity.this , "Ingelogd als Admin" , Toast.LENGTH_SHORT);
+                ingelogdA.show();
+            }
+
+            else if(checkBeheerder){
+                Intent i3 = new Intent(MainActivity.this, Beheerder.class);
+                startActivity(i3);
+
+                Toast ingelogd3 = Toast.makeText(MainActivity.this , "Ingelogd als Beheerder" , Toast.LENGTH_SHORT);
+                ingelogd3.show();
+            }
+
+            else if(checkData){
                 Intent i = new Intent(MainActivity.this, ProductScreen.class);
                 startActivity(i);
 

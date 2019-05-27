@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 public class Contact_Database {
-    String username, email, password;
+    String username, email, password, permission;
 
     public void setUsername(String username){
         this.username = username;
@@ -23,5 +23,11 @@ public class Contact_Database {
     }
     public String getPassword(){
         return this.password;
+    }
+    public void setPermission(){
+        this.permission = permission;
+    }
+    public String getPermission(){
+        return this.permission;
     }
 }

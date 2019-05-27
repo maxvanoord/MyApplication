@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static int DATABASE_VERSION = 2;
+    private static int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "contacts.db";
 
     private static final String COLUMN_ID = "id";
@@ -18,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME_U = "name";
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_PASS = "pass";
+    private static final String COLUMN_PERM = "perm";
 
     // TABLE products
     private static final String TABLE_PRODUCTS = "products";
@@ -29,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // queries for creating TABLES in SQLite
     private static final String TABLE_CREATE_USERS = "create table contacts (id integer primary key not null , " +
-            "name text not null , email text not null , pass text not null);";
+            "name text not null , email text not null , pass text not null, perm text not null);";
 
     private static final String TABLE_CREATE_PRODUCTS = "create table products (id integer primary key not null , " +
             "name text not null , stock integer not null , categorie text not null);";
@@ -82,6 +83,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME_U , c.getUsername());
         values.put(COLUMN_EMAIL , c.getEmail());
         values.put(COLUMN_PASS , c.getPassword());
+        values.put(COLUMN_PERM, "Beheerder");
 
         db.insert(TABLE_USERS,null,values);
         db.close();
@@ -108,6 +110,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("select * from contacts where name=? and pass=?", new String[]{username1, password});
+        if (cursor.getCount()>0) return true;
+        else return false;
+    }
+
+    public Boolean checkAdmin(String username1, String password1){
+        db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from contacts where name=? and pass=? and perm='Admin'", new String[]{username1, password1});
+        if (cursor.getCount()>0) return true;
+        else return false;
+    }
+
+    public Boolean checkBeheerder(String username2, String password2){
+        db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from contacts where name=? and pass=? and perm='Beheerder'", new String[]{username2, password2});
         if (cursor.getCount()>0) return true;
         else return false;
     }
