@@ -131,6 +131,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public Cursor GetProductByCat(String cat){
+        db = this.getReadableDatabase();
+
+        String query = "select * from products where categorie='%"+cat+"%'";
+        Cursor cursor = db.rawQuery(query, null);
+
+        return cursor;
+    }
+
+
     public void eraseTable(){           // Func to clear a TABLE
         db = this.getReadableDatabase();
         db.execSQL("delete from products");

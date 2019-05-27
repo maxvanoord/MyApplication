@@ -75,15 +75,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onAdminClick(View v) {
-        if (v.getId() == R.id.AdminButton) {
-            Intent y = new Intent(MainActivity.this, AdminLayout.class);
-            startActivity(y);
-        }
-    }
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
