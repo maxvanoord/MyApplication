@@ -5,7 +5,6 @@ public class Product_Database {
     int stock;
     String categorie;
 
-
     public void setName(String name){
         this.name = name;
     }

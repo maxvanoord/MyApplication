@@ -36,7 +36,7 @@ public class AdminAddProducts extends Activity implements OnItemSelectedListener
                 try {
                     int stock_int = Integer.parseInt(stock_str);
 
-                    Product_Database c = new Product_Database();// hier word een nieuw object aangemaakt en toegevoegd aan de db
+                    Product_Database c = new Product_Database();        // hier word een nieuw object aangemaakt en toegevoegd aan de db
                     c.setName(name_str);
                     c.setStock(stock_int);
                     c.setCategorie(cat_str);
