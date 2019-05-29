@@ -71,18 +71,9 @@ public class MainActivity extends AppCompatActivity {
         if (v.getId() == R.id.ContactButton) {
             Intent x = new Intent(MainActivity.this, contact.class);
             startActivity(x);
+
         }
     }
-
-    public void onAdminClick(View v) {
-        if (v.getId() == R.id.AdminButton) {
-            Intent y = new Intent(MainActivity.this, AdminLayout.class);
-            startActivity(y);
-        }
-    }
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

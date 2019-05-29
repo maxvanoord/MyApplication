@@ -15,7 +15,7 @@ public class DroneScreen extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dronescreen);
 
-        shopping_cart = findViewById(R.id.shoppingcart);
+        shopping_cart = findViewById(R.id.shopCartDronesScreen);
 
         shopping_cart.setOnClickListener(new View.OnClickListener() {
             @Override
