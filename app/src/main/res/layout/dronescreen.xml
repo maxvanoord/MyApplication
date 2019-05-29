@@ -37,12 +37,12 @@
         android:src="@drawable/shopping_cart" />
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/listViewDrones"
         android:layout_width="0dp"
-        android:layout_height="300sp"
+        android:layout_height="350sp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="90dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"

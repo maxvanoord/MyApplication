@@ -131,10 +131,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor GetProductByCat(){
+    public Cursor GetProductByCat(String cat){
         db = this.getWritableDatabase();
 
-        String query = "select * from products";
+        String query = "select * from products where categorie='"+cat+"'";
         Cursor cursor = db.rawQuery(query, null);
 
         return cursor;
