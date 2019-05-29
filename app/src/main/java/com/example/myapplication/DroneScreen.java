@@ -29,17 +29,14 @@ public class DroneScreen extends Activity{
 
         //populate an ArrayList<String> from the database and then view it
         ArrayList<String> theList = new ArrayList<>();
-        Cursor data = helper.GetProductByCat("");
+        Cursor data = helper.GetProductByCat();
         if(data.getCount() == 0){
             Toast.makeText(this, "Er zijn geen producten beschikbaar in deze categorie",Toast.LENGTH_LONG).show();
         }else{
-            int i = 0;
             while(data.moveToNext()){
-                Product_Database product = new Product_Database(data.getString(1), data.getInt(2), data.getString(3));
-                theList.add(i, data.getString(1));
+                theList.add(data.getString(1));
                 ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
                 listView.setAdapter(listAdapter);
-                i ++;
             }
         }
 

@@ -5,11 +5,6 @@ public class Product_Database {
     int stock;
     String categorie;
 
-    public Product_Database(String name, int stock, String categorie){
-        name = name;
-        stock = stock;
-        categorie = categorie;
-    }
 
     public void setName(String name){
         this.name = name;
