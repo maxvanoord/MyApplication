@@ -79,6 +79,14 @@ public class ProductScreen extends Activity{
             }
         });
 
+        overig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToOverig = new Intent(ProductScreen.this, OverigScreen.class);
+                startActivity(goToOverig);
+            }
+        });
+
 
     }
 }

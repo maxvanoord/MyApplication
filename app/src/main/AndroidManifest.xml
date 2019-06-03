@@ -31,6 +31,7 @@
         <activity android:name=".contact" />
         <activity android:name=".AdminAddProducts" />
         <activity android:name=".VRscreen" />
+        <activity android:name=".OverigScreen" />
     </application>
 
 </manifest>
