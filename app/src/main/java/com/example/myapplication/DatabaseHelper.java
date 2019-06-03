@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static int DATABASE_VERSION = 3;
@@ -138,6 +141,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
 
         return cursor;
+    }
+
+    public List<String> winkelmandje = new ArrayList<>();
+
+    public void aanWinkelmandje(String item){
+        winkelmandje.add(item);
     }
 
 

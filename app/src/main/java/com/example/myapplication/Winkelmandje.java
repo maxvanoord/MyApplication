@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class Winkelmandje extends Activity {
 
     Button reserveren;
+    DatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +27,9 @@ public class Winkelmandje extends Activity {
                 startActivity(intent);
             }
         });
+
+        ListView listView = findViewById(R.id.listViewWinkelmand);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_2, helper.winkelmandje);
+        listView.setAdapter(adapter);
     }
 }
