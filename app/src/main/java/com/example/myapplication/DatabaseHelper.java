@@ -143,7 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public List<String> winkelmandje = new ArrayList<>();
+    List<String> winkelmandje = new ArrayList<>();
 
     public void aanWinkelmandje(String item){
         winkelmandje.add(item);
