@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ProductScreen extends Activity{
 
@@ -13,17 +14,21 @@ public class ProductScreen extends Activity{
     ImageView books;
     ImageView games;
     ImageView computers;
+    ImageView vr;
+    TextView overig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.productscreen);
 
-        drone = findViewById(R.id.Drone);
+        drone = findViewById(R.id.droneimg);
         shopCart = findViewById(R.id.shopCartGamesScreen);
         books = findViewById(R.id.booksimg);
         games = findViewById(R.id.gamesimg);
         computers = findViewById(R.id.computersimg);
+        vr = findViewById(R.id.vrimg);
+        overig = findViewById(R.id.textViewOverig);
 
 
         shopCart.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +71,21 @@ public class ProductScreen extends Activity{
             }
         });
 
+        vr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToVR = new Intent(ProductScreen.this, VRscreen.class);
+                startActivity(goToVR);
+            }
+        });
 
-
+        overig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToOverig = new Intent(ProductScreen.this, OverigScreen.class);
+                startActivity(goToOverig);
+            }
+        });
 
 
     }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 public class DroneScreen extends Activity{
 
     ImageView shopping_cart;
-
     DatabaseHelper helper;
 
     @Override
@@ -24,28 +24,37 @@ public class DroneScreen extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dronescreen);
 
-        ListView listView = findViewById(R.id.listView);
         helper = new DatabaseHelper(this);
 
-        //populate an ArrayList<String> from the database and then view it
-        ArrayList<String> theList = new ArrayList<>();
-        Cursor data = helper.GetProductByCat();
+
+        ListView listView = findViewById(R.id.listViewDrones);
+
+        final ArrayList<String> droneList = new ArrayList<>();
+        Cursor data = helper.GetProductByCat("Drones");
+
         if(data.getCount() == 0){
             Toast.makeText(this, "Er zijn geen producten beschikbaar in deze categorie",Toast.LENGTH_LONG).show();
         }else{
             while(data.moveToNext()){
-                theList.add(data.getString(1));
-                ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,theList);
+                droneList.add(data.getString(1));
+                ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,droneList);
                 listView.setAdapter(listAdapter);
             }
         }
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(DroneScreen.this, "Toegevoegd aan winkelmandje",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         shopping_cart = findViewById(R.id.shopCartDronesScreen);
 
         shopping_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent shoppingcartintent = new Intent(DroneScreen.this, LeenBevestiging.class);
+                Intent shoppingcartintent = new Intent(DroneScreen.this, Winkelmandje.class);
                 startActivity(shoppingcartintent);
             }
         });
