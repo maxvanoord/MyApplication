@@ -44,7 +44,10 @@ public class BooksScreen extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(BooksScreen.this, "Toegevoegd aan winkelmandje",Toast.LENGTH_SHORT).show();
+                Object item = parent.getItemAtPosition(position);
+                String item_string = item.toString();
+                helper.aanWinkelmandje(item_string);
+                Toast.makeText(BooksScreen.this, item_string ,Toast.LENGTH_SHORT).show();
             }
         });
 
