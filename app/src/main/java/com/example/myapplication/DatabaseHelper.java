@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CREATE_PRODUCTS = "create table products (id integer primary key not null , " +
             "name text not null , stock integer not null , categorie text not null);";
-
+    
 
     public DatabaseHelper(Context context)
     {

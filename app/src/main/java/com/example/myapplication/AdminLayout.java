@@ -9,6 +9,7 @@ import android.widget.Button;
 public class AdminLayout extends Activity {
 
     Button inventarisaanpassen;
+    Button rechtenwijzigen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +17,7 @@ public class AdminLayout extends Activity {
         setContentView(R.layout.adminlayout);
 
         inventarisaanpassen = findViewById(R.id.buttonadminproductlijst);
+        rechtenwijzigen = findViewById(R.id.buttonrechtenaanpassen);
 
         inventarisaanpassen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,7 +26,13 @@ public class AdminLayout extends Activity {
                 startActivity(intent);
             }
         });
-
+        rechtenwijzigen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminLayout.this, AdminVeranderRechten.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
