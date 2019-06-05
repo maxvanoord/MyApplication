@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -28,6 +27,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME_P = "name";
     private static final String COLUMN_STOCK = "stock";
     private static final String COLUMN_CATEGORIE = "categorie";
+
+    // TABLE winkelmandje
+    private static final String TABLE_WINKELMANDJE = "winkelmandje";
+    private static final String COLUMN_NAME_W = "name";
+    private static final String COLUMN_STOCK_W = "stock";
 
     SQLiteDatabase db;
 
@@ -143,7 +147,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    List<String> winkelmandje = new ArrayList<>();
+    ArrayList<String> winkelmandje = new ArrayList<>();
 
     public void aanWinkelmandje(String item){
         winkelmandje.add(item);
