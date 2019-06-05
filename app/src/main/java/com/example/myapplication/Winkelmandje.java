@@ -28,8 +28,8 @@ public class Winkelmandje extends Activity {
             }
         });
 
-        ListView listView = findViewById(R.id.listViewWinkelmand);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, helper.winkelmandje);
-        listView.setAdapter(adapter);
+        //ListView listView = findViewById(R.id.listViewWinkelmand);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, helper.winkelmandje);
+        //listView.setAdapter(adapter);
     }
 }
