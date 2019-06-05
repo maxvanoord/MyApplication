@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
     }
-    public void loadProducts() throws IOException {
+    public void loadProductsinDatabase() throws IOException {
         FileReader file = new FileReader("voorraadtechlab.csv");
         BufferedReader buffer = new BufferedReader(file);
         String line = "";
@@ -100,14 +100,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        String str2 = ");";
 
         db.beginTransaction();
-        while ((line = buffer.readLine()) != null) {
+        while ((line = buffer.readLine()) == null) {
             StringBuilder sb = new StringBuilder(str1);
-            String[] str = line.split(",");
+            String[] str = line.split(";");
 //            sb.append("'" + str[0] + "',");
-            sb.append(str[0] + ",");
-            sb.append(str[1] + ",");
-            sb.append(str[2] + ",");
-            sb.append(str[3] + ",");
+            sb.append(str[0] + ";");
+            sb.append(str[1] + ";");
+            sb.append(str[2] + ";");
+            sb.append(str[3] + ";");
 //            sb.append(str[4] + "'");
 //            sb.append(str2);
             db.execSQL(sb.toString());
