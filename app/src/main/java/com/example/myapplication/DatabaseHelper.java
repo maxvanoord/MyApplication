@@ -1,11 +1,21 @@
 package com.example.myapplication;
 
+
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -80,7 +90,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
     }
+    public void loadProducts() throws IOException {
+        FileReader file = new FileReader("voorraadtechlab.csv");
+        BufferedReader buffer = new BufferedReader(file);
+        String line = "";
+        String tableName ="products";
+        String columns = "id, name, stock, caterogie";
+        String str1 = "INSERT INTO " + tableName + " (" + columns + ") values(";
+//        String str2 = ");";
 
+        db.beginTransaction();
+        while ((line = buffer.readLine()) != null) {
+            StringBuilder sb = new StringBuilder(str1);
+            String[] str = line.split(",");
+//            sb.append("'" + str[0] + "',");
+            sb.append(str[0] + ",");
+            sb.append(str[1] + ",");
+            sb.append(str[2] + ",");
+            sb.append(str[3] + ",");
+//            sb.append(str[4] + "'");
+//            sb.append(str2);
+            db.execSQL(sb.toString());
+        }
+        db.setTransactionSuccessful();
+        db.endTransaction();
+    }
 
     public void insertContact(Contact_Database c) {     // Func for inserting a contact in db
         ContentValues values = new ContentValues();
@@ -94,7 +128,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME_U , c.getUsername());
         values.put(COLUMN_EMAIL , c.getEmail());
         values.put(COLUMN_PASS , c.getPassword());
-        values.put(COLUMN_PERM, "Admin");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
+        values.put(COLUMN_PERM, "User");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
 
         db.insert(TABLE_USERS,null,values);
         db.close();

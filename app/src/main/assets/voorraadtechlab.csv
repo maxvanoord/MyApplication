@@ -1,0 +1,52 @@
+id;name;stock;categorie
+0;HoloLens;2;Virtual Reality
+1;Playstation 4;1;Games
+2;LCD Display;5;Computer
+3;Computer Case;4;Computer
+4;Computer;5;Computer
+5;AR Drone Elite Edition;7;Drone
+6;Vandal;1;Overig
+7;FIFA 18;1;Games
+8;Tekken 7;1;Games
+9;Echo Dot;2;Overig
+10;Raspberry Pi Camera;5;Computer
+11;Raspberry Pi 3 Case;5;Computer
+12;Grove Pi;12;Computer
+13;Raspberry Pi 3 Model B;21;Computer
+14;Raspberry Pi Micro SD;20;Computer
+15;Raspberry Pi Power Supply;21;Computer
+16;Motion;5;Virtual Reality
+17;Developer Mount;5;Virtual Reality
+18;Micro-USB;3;Overig
+19;VGA;2;Overig
+20;DVI;1;Overig
+21;WiFi;1;Overig
+22;UTP;2;Overig
+23;Adapter;2;Overig
+24;Eye Tracker;5;Overig
+25;Location Beacons;5;Overig
+26;Low engergy Location beacon;10;Overig
+27;Dev Preview Location Beacon;2;Overig
+28;Vive;3;Virtual Reality
+29;Evolution;5;Virtual Reality
+30;VRBox;5;Virtual Reality
+31;AR Drone Power Edition;2;Drone
+32;Rift;3;Virtual Reality
+33;VR-PC;1;Computer
+34;Taming Text;1;Boeken
+35;iPhone and iPad Apps for Absolute Beginners;1;Boeken
+36;Unlocking Android: A Developer's Guide;1;Boeken
+37;Building Wreless Sensor Networks;1;Boeken
+38;OpenGL ER 2.0 Programming Guide;1;Boeken
+39;Data Mining with Rattle and R;1;Boeken
+40;Fundamentals of Computer Graphics;1;Boeken
+41;Head First: Java;1;Boeken
+42;Head First: Design Patterns;1;Boeken
+43;Programming with Python: Computer Vision;1;Boeken
+44;Good Relationships: the spring Data Neo4J Guide Book;1;Boeken
+45;Natural Language Processing with Python;1;Boeken
+46;Data Mining: practical Machine learning Tools and Techniques;1;Boeken
+47;Building Machine Learning Systems with Python;1;Boeken
+48;Learning Android Game programming;1;Boeken
+49;Mathematics for 3D Game Programming and Computer Graphics;1;Boeken
+50;Practical computer vision with simplecv;1;Boeken
