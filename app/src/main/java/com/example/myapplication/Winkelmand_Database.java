@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 public class Winkelmand_Database {
     String name;
+    int amount;
 
 
     public void setName(String name){
@@ -9,5 +10,11 @@ public class Winkelmand_Database {
     }
     public String getName(){
         return this.name;
+    }
+    public void setAmount(int amount){
+        this.amount = amount;
+    }
+    public int getAmount(){
+        return this.amount;
     }
 }

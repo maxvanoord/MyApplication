@@ -46,7 +46,6 @@ public class BooksScreen extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object item = parent.getItemAtPosition(position);
                 String item_string = item.toString();
-                helper.aanWinkelmandje(item_string);
                 Toast.makeText(BooksScreen.this, item_string ,Toast.LENGTH_SHORT).show();
             }
         });

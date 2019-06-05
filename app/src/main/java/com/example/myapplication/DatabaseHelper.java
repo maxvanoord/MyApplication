@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static int DATABASE_VERSION = 3;
+    private static int DATABASE_VERSION = 4;
     private static final String DATABASE_NAME = "contacts.db";
 
     private static final String COLUMN_ID = "id";
@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // TABLE winkelmandje
     private static final String TABLE_WINKELMANDJE = "winkelmandje";
     private static final String COLUMN_NAME_W = "name";
-    private static final String COLUMN_STOCK_W = "stock";
+    private static final String COLUMN_AMOUNT = "amount";
 
     SQLiteDatabase db;
 
@@ -41,6 +41,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CREATE_PRODUCTS = "create table products (id integer primary key not null , " +
             "name text not null , stock integer not null , categorie text not null);";
+
+    private static final String TABLE_CREATE_WINKELMANDJE = "create table winkelmandje (id integer primary key not null , "
+            + "name text not null, amount integer not null);";
     
 
     public DatabaseHelper(Context context)
@@ -53,6 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Database tables are created here with the queries
         db.execSQL(TABLE_CREATE_USERS);
         db.execSQL(TABLE_CREATE_PRODUCTS);
+        db.execSQL(TABLE_CREATE_WINKELMANDJE);
         this.db = db;
     }
 
@@ -93,6 +97,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PERM, "User");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
 
         db.insert(TABLE_USERS,null,values);
+        db.close();
+    }
+
+    public void insertWinkelmandje(Winkelmand_Database winkelmand_database) { // Func for inserting products in winkelmandje
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // Count existed rows in TABLE for defining the ID
+        String query = "select * from winkelmandje";
+        Cursor cursor = db.rawQuery(query, null);
+        int count = cursor.getCount();
+
+        // Getting values from object en put it into row in db
+        values.put(COLUMN_ID, count);
+        values.put(COLUMN_NAME_W, winkelmand_database.getName());
+        values.put(COLUMN_AMOUNT, winkelmand_database.getAmount());
+
+
+        db.insert(TABLE_WINKELMANDJE, null, values);  // van tuple values wordt een object aan de table name gevoegd
         db.close();
     }
 
@@ -147,11 +170,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    ArrayList<String> winkelmandje = new ArrayList<>();
-
-    public void aanWinkelmandje(String item){
-        winkelmandje.add(item);
-    }
 
 
     public void eraseTable(){           // Func to clear a TABLE
