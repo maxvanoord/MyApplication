@@ -45,8 +45,13 @@ public class BooksScreen extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object item = parent.getItemAtPosition(position);
-                String item_string = item.toString();
-                Toast.makeText(BooksScreen.this, item_string ,Toast.LENGTH_SHORT).show();
+                String item_name = item.toString();
+
+                Winkelmand_Database c = new Winkelmand_Database();
+                c.setName(item_name);
+                c.setAmount(1);
+                helper.insertWinkelmandje(c);
+                Toast.makeText(BooksScreen.this, "Aan winkelmandje gevoegd" ,Toast.LENGTH_SHORT).show();
             }
         });
 

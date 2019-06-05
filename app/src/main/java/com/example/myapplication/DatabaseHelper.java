@@ -9,18 +9,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FilenameFilter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static int DATABASE_VERSION = 4;
+    private static int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "contacts.db";
 
     private static final String COLUMN_ID = "id";
@@ -204,13 +198,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor GetWinkelmandProducts(){
+        db = this.getWritableDatabase();
+
+        String query = "select * from winkelmandje";
+        Cursor cursor = db.rawQuery(query, null);
+
+        return cursor;
+    }
 
 
-    public void eraseTable(){           // Func to clear a TABLE
+    public void eraseTables(){           // Func to clear a TABLE
         db = this.getReadableDatabase();
         db.execSQL("delete from products");
         db.execSQL("delete from contacts");
 
+    }
+
+    public void clearWinkelmandje(){
+        db = this.getWritableDatabase();
+        db.execSQL("delete from winkelmandje");
     }
 
 
