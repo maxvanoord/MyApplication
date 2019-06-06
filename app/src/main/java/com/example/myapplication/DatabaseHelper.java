@@ -84,31 +84,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
     }
-    public void loadProductsinDatabase() throws IOException {
-        FileReader file = new FileReader("voorraadtechlab.csv");
-        BufferedReader buffer = new BufferedReader(file);
-        String line = "";
-        String tableName ="products";
-        String columns = "id, name, stock, caterogie";
-        String str1 = "INSERT INTO " + tableName + " (" + columns + ") values(";
-//        String str2 = ");";
-
-        db.beginTransaction();
-        while ((line = buffer.readLine()) == null) {
-            StringBuilder sb = new StringBuilder(str1);
-            String[] str = line.split(";");
-//            sb.append("'" + str[0] + "',");
-            sb.append(str[0] + ";");
-            sb.append(str[1] + ";");
-            sb.append(str[2] + ";");
-            sb.append(str[3] + ";");
-//            sb.append(str[4] + "'");
-//            sb.append(str2);
-            db.execSQL(sb.toString());
-        }
-        db.setTransactionSuccessful();
-        db.endTransaction();
-    }
 
     public void insertContact(Contact_Database c) {     // Func for inserting a contact in db
         ContentValues values = new ContentValues();
@@ -212,6 +187,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db = this.getReadableDatabase();
         db.execSQL("delete from products");
         db.execSQL("delete from contacts");
+        db.execSQL("delete from winkelmandje");
+
+
 
     }
 
@@ -220,6 +198,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("delete from winkelmandje");
     }
 
+    public void insertAllProducts(){
+        db = this.getWritableDatabase();
+        db.execSQL("delete from products");
+        Product_Database item1 = new Product_Database("HoloLens", 2, "Virtual Reality");
+        Product_Database item2 = new Product_Database("Playstation 4", 1, "Games");
+        Product_Database item3 = new Product_Database("LCD Display", 5, "Computer");
+        insertProduct(item1);
+        insertProduct(item2);
+        insertProduct(item3);
+
+    }
 
 
 
@@ -227,6 +216,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
+
         onCreate(db);
     }
 }
