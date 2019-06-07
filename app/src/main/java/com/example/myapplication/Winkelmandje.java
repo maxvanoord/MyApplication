@@ -55,6 +55,8 @@ public class Winkelmandje extends Activity {
             @Override
             public void onClick(View v) {
                 helper.clearWinkelmandje();
+                finish();
+                startActivity(getIntent());
                 Toast.makeText(Winkelmandje.this, "winkelmandje geleegd", Toast.LENGTH_SHORT).show();
             }
         });

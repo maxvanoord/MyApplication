@@ -10,7 +10,8 @@ import android.widget.CalendarView;
 public class LeenActivity extends Activity{
 
     CalendarView calendar;
-    String getDatum;
+    String getOphaal;
+    String getTerugbreng;
 
 
     @Override
@@ -23,7 +24,8 @@ public class LeenActivity extends Activity{
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                getDatum = dayOfMonth + "/" + (month+1) + "/" + year;
+                getOphaal = dayOfMonth + "/" + (month+1) + "/" + year;
+                getTerugbreng = dayOfMonth + "/" + (month+2) + "/" + year;
             }
         });
 
@@ -33,7 +35,8 @@ public class LeenActivity extends Activity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LeenActivity.this, LeenBevestiging.class);
-                intent.putExtra("DATUM", getDatum);
+                intent.putExtra("OPHAAL", getOphaal);
+                intent.putExtra("TERUGBRENG", getTerugbreng);
                 startActivity(intent);
             }
         });

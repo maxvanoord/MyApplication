@@ -19,15 +19,25 @@ public class LeenBevestiging extends AppCompatActivity {
     DatabaseHelper helper;
     TextView datum;
 
+    Intent intentdatum;
+    String ophaal;
+    String terugbreng;
+    String item_str;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bevestigreservering);
 
-        Intent intent = getIntent();
-        String data1 = intent.getStringExtra("DATUM");
+        intentdatum = getIntent();
+        ophaal = intentdatum.getStringExtra("OPHAAL");
+        terugbreng = intentdatum.getStringExtra("TERUGBRENG");
+
+
         datum = findViewById(R.id.TextViewDatumDisplayer);
-        datum.setText(data1);
+        datum.setText(ophaal);
+
 
         Button bevestigbestelling = findViewById(R.id.buttonbevestigbestelling);
 
@@ -52,11 +62,17 @@ public class LeenBevestiging extends AppCompatActivity {
         bevestigbestelling.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Report_Database c = new Report_Database("huurder", "product", ophaal, terugbreng);// hier word een nieuw object aangemaakt en toegevoegd aan de db
+                helper.insertReport(c);
+
                 Toast geslaagd = Toast.makeText(LeenBevestiging.this , "Reservering is voltooid" , Toast.LENGTH_SHORT);
                 geslaagd.show();
+
                 Intent bevestiging = new Intent(LeenBevestiging.this, ProductScreen.class);
                 startActivity(bevestiging);
 
+                helper.clearWinkelmandje();
             }
         });
     }

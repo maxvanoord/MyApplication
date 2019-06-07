@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static int DATABASE_VERSION = 5;
+    private static int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "contacts.db";
 
     private static final String COLUMN_ID = "id";
@@ -33,7 +31,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NAME_W = "name";
     private static final String COLUMN_AMOUNT = "amount";
 
+    // TABLE reports
+    private static final String TABLE_REPORTS = "reports";
+    private static final String COLUMN_HUURDER = "huurder";
+    private static final String COLUMN_ITEM = "items";
+    private static final String COLUMN_OPHAAL = "ophaal";
+    private static final String COLUMN_TERUGBRENG = "terugbreng";
+
+
     SQLiteDatabase db;
+
 
     // queries for creating TABLES in SQLite
     private static final String TABLE_CREATE_USERS = "create table contacts (id integer primary key not null , " +
@@ -44,6 +51,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CREATE_WINKELMANDJE = "create table winkelmandje (id integer primary key not null , "
             + "name text not null, amount integer not null);";
+
+    private static final String TABLE_CREATE_REPORTS = "create table reports (id integer primary key not null , "
+            + "huurder text not null, items text not null, ophaal text not null, terugbreng text not null);";
     
 
     public DatabaseHelper(Context context)
@@ -51,12 +61,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context , DATABASE_NAME ,null , DATABASE_VERSION);
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Database tables are created here with the queries
         db.execSQL(TABLE_CREATE_USERS);
         db.execSQL(TABLE_CREATE_PRODUCTS);
         db.execSQL(TABLE_CREATE_WINKELMANDJE);
+        db.execSQL(TABLE_CREATE_REPORTS);
         this.db = db;
     }
 
@@ -81,6 +93,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+
+    public void insertReport(Report_Database report_database){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // Count existed rows in TABLE for defining the ID
+        String query =  "select * from reports";
+        Cursor cursor = db.rawQuery(query, null);
+        int count = cursor.getCount();
+
+        // Getting values from object en put it into row in db
+        values.put(COLUMN_ID, count);
+        values.put(COLUMN_HUURDER , report_database.getHuurder());
+        values.put(COLUMN_ITEM , report_database.getItems());
+        values.put(COLUMN_OPHAAL , report_database.getOphaal());
+        values.put(COLUMN_TERUGBRENG , report_database.getTerugbreng());
+
+        db.insert(TABLE_REPORTS,null,values);  // van tuple values wordt een object aan de table name gevoegd
+        db.close();
+    }
+
+
     public void insertContact(Contact_Database c) {     // Func for inserting a contact in db
         ContentValues values = new ContentValues();
 
@@ -98,6 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_USERS,null,values);
         db.close();
     }
+
 
     public void insertWinkelmandje(Winkelmand_Database winkelmand_database) { // Func for inserting products in winkelmandje
         db = this.getWritableDatabase();
@@ -127,6 +162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return true;
     }
 
+
     public Boolean checkUsername(String given_username){ // Check if username is already taken in db
         db = this.getReadableDatabase();
 
@@ -134,6 +170,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.getCount()>0) return false;
         else return true;
     }
+
 
     public Boolean checkMatch(String username1, String password){ // Check if given username/password match correctly in db
         db = this.getReadableDatabase();
@@ -143,6 +180,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return false;
     }
 
+
     public Boolean checkAdmin(String username1, String password1){
         db = this.getWritableDatabase();
 
@@ -150,6 +188,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.getCount()>0) return true;
         else return false;
     }
+
 
     public Boolean checkBeheerder(String username2, String password2){
         db = this.getWritableDatabase();
@@ -169,6 +208,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+
     public Cursor GetWinkelmandProducts(){
         db = this.getWritableDatabase();
 
@@ -184,10 +224,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("delete from products");
         db.execSQL("delete from contacts");
         db.execSQL("delete from winkelmandje");
-
-
-
+        db.execSQL("delete from reports");
     }
+
 
     public void clearWinkelmandje(){
         db = this.getWritableDatabase();
@@ -303,12 +342,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
-
         onCreate(db);
     }
 }
