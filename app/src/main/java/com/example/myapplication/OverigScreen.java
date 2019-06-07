@@ -17,13 +17,14 @@ import java.util.ArrayList;
 public class OverigScreen extends Activity {
 
     ImageView shopCart;
+    DatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overig_screen);
 
-        DatabaseHelper helper = new DatabaseHelper(this);
+        helper = new DatabaseHelper(this);
         shopCart = findViewById(R.id.shopCartOverigScreen);
 
         ListView listView = findViewById(R.id.listViewOverig);
@@ -44,7 +45,15 @@ public class OverigScreen extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(OverigScreen.this, "Toegevoegd aan winkelmandje",Toast.LENGTH_SHORT).show();
+                Object item = parent.getItemAtPosition(position);
+                String item_name = item.toString();
+
+                Winkelmand_Database c = new Winkelmand_Database();
+                c.setName(item_name);
+                c.setAmount(1);
+                helper.insertWinkelmandje(c);
+                Toast.makeText(OverigScreen.this, "Aan winkelmandje gevoegd" ,Toast.LENGTH_SHORT).show();
+
             }
         });
 

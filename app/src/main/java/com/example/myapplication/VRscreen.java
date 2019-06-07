@@ -17,13 +17,14 @@ import java.util.ArrayList;
 public class VRscreen extends Activity {
 
     ImageView shopCart;
+    DatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vrscreen);
 
-        DatabaseHelper helper = new DatabaseHelper(this);
+        helper = new DatabaseHelper(this);
         shopCart = findViewById(R.id.shopCartVRScreen);
 
         ListView listView = findViewById(R.id.listViewVR);
@@ -44,7 +45,14 @@ public class VRscreen extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(VRscreen.this, "Toegevoegd aan winkelmandje",Toast.LENGTH_SHORT).show();
+                Object item = parent.getItemAtPosition(position);
+                String item_name = item.toString();
+
+                Winkelmand_Database c = new Winkelmand_Database();
+                c.setName(item_name);
+                c.setAmount(1);
+                helper.insertWinkelmandje(c);
+                Toast.makeText(VRscreen.this, "Aan winkelmandje gevoegd" ,Toast.LENGTH_SHORT).show();
             }
         });
 
