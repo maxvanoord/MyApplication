@@ -8,10 +8,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static int DATABASE_VERSION = 5;
@@ -206,7 +202,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Product_Database item3 = new Product_Database("LCD Display", 5, "Computer");
         Product_Database item4 = new Product_Database("Computer Case", 4, "Computer");
         Product_Database item5 = new Product_Database("Computer", 5, "Computer");
-        Product_Database item6 = new Product_Database("AR Drone Elite Edition", 7, "Drone");
+        Product_Database item6 = new Product_Database("AR Drone Elite Edition", 7, "Drones");
         Product_Database item7 = new Product_Database("Vandal", 1, "Overig");
         Product_Database item8 = new Product_Database("Fifa 18", 1, "Games");
         Product_Database item9 = new Product_Database("Tekken 7", 1, "Games");
@@ -232,7 +228,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Product_Database item29 = new Product_Database("Vive", 3, "Virtual Reality");
         Product_Database item30 = new Product_Database("Evolution", 5, "Virtual Reality");
         Product_Database item31 = new Product_Database("VRBox", 5, "Virtual Reality");
-        Product_Database item32 = new Product_Database("AR Drone Power Edition", 2, "Drone");
+        Product_Database item32 = new Product_Database("AR Drone Power Edition", 2, "Drones");
         Product_Database item33 = new Product_Database("Rift", 3, "Virtual Reality");
         Product_Database item34 = new Product_Database("VR-PC", 1, "Computer");
         Product_Database item35 = new Product_Database("Taming Text", 1, "Boeken");
