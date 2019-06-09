@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     DatabaseHelper helper = new DatabaseHelper(this);
+    String input_U;
 
     public void onButtonClick(View v)
 
@@ -20,8 +21,10 @@ public class MainActivity extends AppCompatActivity {
             EditText input_username = findViewById(R.id.StudentnummerText);
             EditText input_password = findViewById(R.id.WachtwoordText);
 
-            String input_U = input_username.getText().toString();
+            input_U = input_username.getText().toString();
             String input_P = input_password.getText().toString();
+
+            DatabaseHelper.loginKeeper = input_U;
 
             Boolean checkData = helper.checkMatch(input_U, input_P);
             Boolean checkAdmin = helper.checkAdmin(input_U, input_P);
