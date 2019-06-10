@@ -10,6 +10,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static String loginKeeper = null;
 
+
     private static int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "contacts.db";
 

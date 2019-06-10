@@ -24,6 +24,7 @@ public class LeenBevestiging extends AppCompatActivity {
     String terugbreng;
     String item_str;
     String username;
+    ArrayList<String> overzichtList = new ArrayList<>();
 
 
     @Override
@@ -45,7 +46,7 @@ public class LeenBevestiging extends AppCompatActivity {
         ListView listView = findViewById(R.id.ListViewOverzichtBestelling);
         helper = new DatabaseHelper(this);
 
-        final ArrayList<String> overzichtList = new ArrayList<>();
+
         Cursor data = helper.GetWinkelmandProducts();
 
         if(data.getCount() == 0){
@@ -59,12 +60,11 @@ public class LeenBevestiging extends AppCompatActivity {
         }
 
 
-
         bevestigbestelling.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Report_Database c = new Report_Database(DatabaseHelper.loginKeeper, "producten", ophaal, terugbreng);// hier word een nieuw object aangemaakt en toegevoegd aan de db
+                Report_Database c = new Report_Database(DatabaseHelper.loginKeeper, "test", ophaal, terugbreng);// hier word een nieuw object aangemaakt en toegevoegd aan de db
                 helper.insertReport(c);
 
                 Toast geslaagd = Toast.makeText(LeenBevestiging.this , "Reservering is voltooid" , Toast.LENGTH_SHORT);
