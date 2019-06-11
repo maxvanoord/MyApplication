@@ -57,11 +57,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_CREATE_REPORTS = "create table reports (id integer primary key not null , "
             + "huurder text not null, items text not null, ophaal text not null, terugbreng text not null);";
-    
 
-    public DatabaseHelper(Context context)
-    {
-        super(context , DATABASE_NAME ,null , DATABASE_VERSION);
+
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
 
@@ -76,44 +75,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void insertProduct(Product_Database product_database){ // Func for inserting products in db
+    public void insertProduct(Product_Database product_database) { // Func for inserting products in db
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         // Count existed rows in TABLE for defining the ID
-        String query =  "select * from products";
+        String query = "select * from products";
         Cursor cursor = db.rawQuery(query, null);
         int count = cursor.getCount();
 
         // Getting values from object en put it into row in db
         values.put(COLUMN_ID, count);
-        values.put(COLUMN_NAME_P , product_database.getName());
-        values.put(COLUMN_STOCK , product_database.getStock());
-        values.put(COLUMN_CATEGORIE , product_database.getCategorie());
+        values.put(COLUMN_NAME_P, product_database.getName());
+        values.put(COLUMN_STOCK, product_database.getStock());
+        values.put(COLUMN_CATEGORIE, product_database.getCategorie());
 
-        db.insert(TABLE_PRODUCTS,null,values);  // van tuple values wordt een object aan de table name gevoegd
+        db.insert(TABLE_PRODUCTS, null, values);  // van tuple values wordt een object aan de table name gevoegd
         db.close();
 
     }
 
 
-    public void insertReport(Report_Database report_database){
+    public void insertReport(Report_Database report_database) {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         // Count existed rows in TABLE for defining the ID
-        String query =  "select * from reports";
+        String query = "select * from reports";
         Cursor cursor = db.rawQuery(query, null);
         int count = cursor.getCount();
 
         // Getting values from object en put it into row in db
         values.put(COLUMN_ID, count);
-        values.put(COLUMN_HUURDER , report_database.getHuurder());
-        values.put(COLUMN_ITEM , report_database.getItems());
-        values.put(COLUMN_OPHAAL , report_database.getOphaal());
-        values.put(COLUMN_TERUGBRENG , report_database.getTerugbreng());
+        values.put(COLUMN_HUURDER, report_database.getHuurder());
+        values.put(COLUMN_ITEM, report_database.getItems());
+        values.put(COLUMN_OPHAAL, report_database.getOphaal());
+        values.put(COLUMN_TERUGBRENG, report_database.getTerugbreng());
 
-        db.insert(TABLE_REPORTS,null,values);  // van tuple values wordt een object aan de table name gevoegd
+        db.insert(TABLE_REPORTS, null, values);  // van tuple values wordt een object aan de table name gevoegd
         db.close();
     }
 
@@ -122,17 +121,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
 
-        String query =  "select * from contacts";
+        String query = "select * from contacts";
         Cursor cursor = db.rawQuery(query, null);
         int count = cursor.getCount();
 
         values.put(COLUMN_ID, count);
-        values.put(COLUMN_NAME_U , c.getUsername());
-        values.put(COLUMN_EMAIL , c.getEmail());
-        values.put(COLUMN_PASS , c.getPassword());
-        values.put(COLUMN_PERM, "User");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
+        values.put(COLUMN_NAME_U, c.getUsername());
+        values.put(COLUMN_EMAIL, c.getEmail());
+        values.put(COLUMN_PASS, c.getPassword());
+        values.put(COLUMN_PERM, "Admin");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
 
-        db.insert(TABLE_USERS,null,values);
+        db.insert(TABLE_USERS, null, values);
         db.close();
     }
 
@@ -157,62 +156,62 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Boolean checkMail(String given_mail){ // Check existance of a mail address at Register
+    public Boolean checkMail(String given_mail) { // Check existance of a mail address at Register
         db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("Select * from contacts where email=?", new String[]{given_mail});
-        if (cursor.getCount()>0) return false;
+        if (cursor.getCount() > 0) return false;
         else return true;
     }
 
 
-    public Boolean checkUsername(String given_username){ // Check if username is already taken in db
+    public Boolean checkUsername(String given_username) { // Check if username is already taken in db
         db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("Select * from contacts where name=?", new String[]{given_username});
-        if (cursor.getCount()>0) return false;
+        if (cursor.getCount() > 0) return false;
         else return true;
     }
 
 
-    public Boolean checkMatch(String username1, String password){ // Check if given username/password match correctly in db
+    public Boolean checkMatch(String username1, String password) { // Check if given username/password match correctly in db
         db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("select * from contacts where name=? and pass=?", new String[]{username1, password});
-        if (cursor.getCount()>0) return true;
+        if (cursor.getCount() > 0) return true;
         else return false;
     }
 
 
-    public Boolean checkAdmin(String username1, String password1){
+    public Boolean checkAdmin(String username1, String password1) {
         db = this.getWritableDatabase();
 
         Cursor cursor = db.rawQuery("select * from contacts where name=? and pass=? and perm='Admin'", new String[]{username1, password1});
-        if (cursor.getCount()>0) return true;
+        if (cursor.getCount() > 0) return true;
         else return false;
     }
 
 
-    public Boolean checkBeheerder(String username2, String password2){
+    public Boolean checkBeheerder(String username2, String password2) {
         db = this.getWritableDatabase();
 
         Cursor cursor = db.rawQuery("select * from contacts where name=? and pass=? and perm='Beheerder'", new String[]{username2, password2});
-        if (cursor.getCount()>0) return true;
+        if (cursor.getCount() > 0) return true;
         else return false;
     }
 
 
-    public Cursor GetProductByCat(String cat){
+    public Cursor GetProductByCat(String cat) {
         db = this.getWritableDatabase();
 
-        String query = "select * from products where categorie='"+cat+"'";
+        String query = "select * from products where categorie='" + cat + "'";
         Cursor cursor = db.rawQuery(query, null);
 
         return cursor;
     }
 
 
-    public Cursor GetWinkelmandProducts(){
+    public Cursor GetWinkelmandProducts() {
         db = this.getWritableDatabase();
 
         String query = "select * from winkelmandje";
@@ -222,7 +221,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void eraseTables(){           // Func to clear a TABLE
+    public void eraseTables() {           // Func to clear a TABLE
         db = this.getReadableDatabase();
         db.execSQL("delete from products");
         db.execSQL("delete from contacts");
@@ -231,12 +230,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void clearWinkelmandje(){
+    public void clearWinkelmandje() {
         db = this.getWritableDatabase();
         db.execSQL("delete from winkelmandje");
     }
 
-    public void insertAllProducts(){
+    public void insertAllProducts() {
         db = this.getWritableDatabase();
         db.execSQL("delete from products");
         Product_Database item1 = new Product_Database("HoloLens", 2, "Virtual Reality");
@@ -342,6 +341,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertProduct(item49);
         insertProduct(item50);
         insertProduct(item51);
+    }
+
+    public Cursor GetAllProducts() {
+        db = this.getWritableDatabase();
+        String query = "select all products";
+        Cursor cursor = db.rawQuery(query, null);
+
+        return cursor;
     }
 
 

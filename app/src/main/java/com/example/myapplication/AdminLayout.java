@@ -12,7 +12,7 @@ public class AdminLayout extends Activity {
     DatabaseHelper helper;
 
     Button inventarisaanpassen;
-    Button rechtenwijzigen;
+    Button inventarisverwijderen;
     Button voorraadreset;
 
     @Override
@@ -23,7 +23,7 @@ public class AdminLayout extends Activity {
         helper = new DatabaseHelper(this);
 
         inventarisaanpassen = findViewById(R.id.buttonadminproductlijst);
-        rechtenwijzigen = findViewById(R.id.buttonrechtenaanpassen);
+        inventarisverwijderen = findViewById(R.id.buttonproductenverwijderen);
         voorraadreset = findViewById(R.id.buttonVoorraadreset);
 
         inventarisaanpassen.setOnClickListener(new View.OnClickListener() {
@@ -33,10 +33,10 @@ public class AdminLayout extends Activity {
                 startActivity(intent);
             }
         });
-        rechtenwijzigen.setOnClickListener(new View.OnClickListener() {
+        inventarisverwijderen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminLayout.this, AdminVeranderRechten.class);
+                Intent intent = new Intent(AdminLayout.this, admin_all_products.class);
                 startActivity(intent);
             }
         });
