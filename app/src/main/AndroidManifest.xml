@@ -35,6 +35,7 @@
         <activity android:name=".ComputersScreen" />
         <activity android:name=".contact" />
         <activity android:name=".AdminAddProducts" />
+        <activity android:name=".VoorraadCheck" />
     </application>
 
 </manifest>

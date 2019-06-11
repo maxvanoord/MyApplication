@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    // Deze variabelen zijn vanuit elke class op te halen
     public static String loginKeeper = null;
     public static String winkelmandItems = "";
 
@@ -207,6 +208,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "select * from products where categorie='" + cat + "'";
         Cursor cursor = db.rawQuery(query, null);
 
+        return cursor;
+    }
+
+    public Cursor GetAllProducts(){
+        db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from products", null);
         return cursor;
     }
 
