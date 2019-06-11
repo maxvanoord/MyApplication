@@ -31,7 +31,7 @@ public class ReportsBeheerder extends Activity {
         Cursor allItems = helper.GetAllReports();
 
         if(allItems.getCount() == 0){
-            Toast.makeText(this, "Voorraad is leeg!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Op het moment zijn er geen reports",Toast.LENGTH_LONG).show();
         }else{
             while(allItems.moveToNext()){
                 itemStock.put(allItems.getString(1), allItems.getString(2));

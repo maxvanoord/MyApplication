@@ -8,7 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin_all_products"></activity>
+        <activity android:name=".AdminDeleteProducts"></activity>
         <activity android:name=".OverigScreen" />
         <activity android:name=".VRscreen" />
         <activity

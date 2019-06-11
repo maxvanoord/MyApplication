@@ -130,7 +130,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME_U, c.getUsername());
         values.put(COLUMN_EMAIL, c.getEmail());
         values.put(COLUMN_PASS, c.getPassword());
-        values.put(COLUMN_PERM, "Admin");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
+        values.put(COLUMN_PERM, "User");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
 
         db.insert(TABLE_USERS, null, values);
         db.close();
@@ -231,6 +231,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
 
         return cursor;
+    }
+
+    public void DeleteProduct(String product){
+        db = this.getWritableDatabase();
+
+        String query = "delete from products where name='"+product+"'";
+        db.execSQL(query);
     }
 
 
@@ -355,7 +362,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertProduct(item50);
         insertProduct(item51);
     }
-
 
 
     @Override

@@ -41,7 +41,7 @@ public class AdminLayout extends Activity {
         inventarisverwijderen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminLayout.this, admin_all_products.class);
+                Intent intent = new Intent(AdminLayout.this, AdminDeleteProducts.class);
                 startActivity(intent);
             }
         });
