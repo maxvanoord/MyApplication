@@ -18,6 +18,7 @@
         android:layout_marginRight="8dp"
         android:text="Reports"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonbeheerderproducten2" />
 
@@ -32,8 +33,9 @@
         android:layout_marginRight="8dp"
         android:text="Voorraad check"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonadminproductlijst" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonproductenverwijderen" />
 
     <TextView
         android:id="@+id/textView24"
@@ -77,9 +79,8 @@
         android:layout_marginRight="8dp"
         android:text="Producten verwijderen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonbeheerderreports2" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonadminproductlijst" />
 
     <Button
         android:id="@+id/buttonVoorraadreset"
@@ -92,6 +93,7 @@
         android:layout_marginRight="8dp"
         android:text="voorraad reset"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonproductenverwijderen" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonbeheerderreports2" />
 </android.support.constraint.ConstraintLayout>

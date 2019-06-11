@@ -217,6 +217,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor GetAllReports(){
+        db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from reports", null);
+        return cursor;
+    }
+
 
     public Cursor GetWinkelmandProducts() {
         db = this.getWritableDatabase();
@@ -350,13 +356,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertProduct(item51);
     }
 
-    public Cursor GetAllProducts() {
-        db = this.getWritableDatabase();
-        String query = "select all products";
-        Cursor cursor = db.rawQuery(query, null);
-
-        return cursor;
-    }
 
 
     @Override

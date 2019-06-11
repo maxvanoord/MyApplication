@@ -15,6 +15,7 @@ public class AdminLayout extends Activity {
     Button inventarisverwijderen;
     Button voorraadreset;
     Button voorraad;
+    Button reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class AdminLayout extends Activity {
         inventarisverwijderen = findViewById(R.id.buttonproductenverwijderen);
         voorraadreset = findViewById(R.id.buttonVoorraadreset);
         voorraad = findViewById(R.id.buttonbeheerderproducten2);
+        reports = findViewById(R.id.buttonbeheerderreports2);
 
 
         inventarisaanpassen.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +56,13 @@ public class AdminLayout extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminLayout.this, VoorraadCheck.class);
+                startActivity(intent);
+            }
+        });
+        reports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminLayout.this, ReportsBeheerder.class);
                 startActivity(intent);
             }
         });
