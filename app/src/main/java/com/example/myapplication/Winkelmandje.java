@@ -45,7 +45,9 @@ public class Winkelmandje extends Activity {
             Toast.makeText(this, "Winkelmandje is leeg",Toast.LENGTH_LONG).show();
         }else{
             while(data.moveToNext()){
-                winkelmandList.add(data.getString(1));
+                String item = data.getString(1);
+                winkelmandList.add(item);
+                DatabaseHelper.winkelmandItems += item + " / ";
                 ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,winkelmandList);
                 listView.setAdapter(listAdapter);
             }
