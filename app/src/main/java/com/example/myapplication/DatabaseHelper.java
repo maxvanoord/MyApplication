@@ -87,9 +87,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Getting values from object en put it into row in db
         values.put(COLUMN_ID, count);
-        values.put(COLUMN_NAME_P, product_database.getName());
-        values.put(COLUMN_STOCK, product_database.getStock());
-        values.put(COLUMN_CATEGORIE, product_database.getCategorie());
+        values.put(COLUMN_NAME_P, product_database.name);
+        values.put(COLUMN_STOCK, product_database.stock);
+        values.put(COLUMN_CATEGORIE, product_database.categorie);
 
         db.insert(TABLE_PRODUCTS, null, values);  // van tuple values wordt een object aan de table name gevoegd
         db.close();
@@ -130,7 +130,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME_U, c.getUsername());
         values.put(COLUMN_EMAIL, c.getEmail());
         values.put(COLUMN_PASS, c.getPassword());
-        values.put(COLUMN_PERM, "User");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
+        values.put(COLUMN_PERM, "Beheerder");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
 
         db.insert(TABLE_USERS, null, values);
         db.close();
@@ -239,6 +239,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "delete from products where name='"+product+"'";
         db.execSQL(query);
     }
+
+    public void DeleteReport(String report){
+        db = this.getWritableDatabase();
+
+        String query = "delete from reports where huurder='"+report+"'";
+        db.execSQL(query);
+    }
+
+
 
 
     public void eraseTables() {           // Func to clear a TABLE

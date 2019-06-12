@@ -19,7 +19,6 @@
         android:text="Producten toevoegen"
         android:textColor="#000000"
         android:textSize="26sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.747"
         app:layout_constraintStart_toStartOf="parent"
