@@ -36,6 +36,8 @@
         <activity android:name=".AdminAddProducts" />
         <activity android:name=".VoorraadCheck" />
         <activity android:name=".InnemenProducten" />
+        <activity android:name=".HomeScherm" />
+        <activity android:name=".MijnProducten" />
     </application>
 
 </manifest>

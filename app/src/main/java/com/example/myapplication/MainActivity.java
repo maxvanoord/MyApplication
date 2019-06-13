@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             else if(checkData){
-                Intent i = new Intent(MainActivity.this, ProductScreen.class);
+                Intent i = new Intent(MainActivity.this, HomeScherm.class);
                 startActivity(i);
 
                 Toast ingelogd = Toast.makeText(MainActivity.this , "Succesvol ingelogd!" , Toast.LENGTH_SHORT);
