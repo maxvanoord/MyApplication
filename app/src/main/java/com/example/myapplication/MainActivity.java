@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
             input_U = input_username.getText().toString();
             String input_P = input_password.getText().toString();
 
-            DatabaseHelper.loginKeeper = input_U;
-
             Boolean checkData = helper.checkMatch(input_U, input_P);
             Boolean checkAdmin = helper.checkAdmin(input_U, input_P);
             Boolean checkBeheerder = helper.checkBeheerder(input_U, input_P);
@@ -52,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast ingelogd = Toast.makeText(MainActivity.this , "Succesvol ingelogd!" , Toast.LENGTH_SHORT);
                 ingelogd.show();
+
+                DatabaseHelper.loginKeeper = input_U;
             }
 
             else {
@@ -74,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         if (v.getId() == R.id.ContactButton) {
             Intent x = new Intent(MainActivity.this, contact.class);
             startActivity(x);
-            helper.insertAllProducts();
-
         }
     }
 

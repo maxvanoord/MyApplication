@@ -130,7 +130,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME_U, c.getUsername());
         values.put(COLUMN_EMAIL, c.getEmail());
         values.put(COLUMN_PASS, c.getPassword());
-        values.put(COLUMN_PERM, "Beheerder");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
+        values.put(COLUMN_PERM, "User");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
 
         db.insert(TABLE_USERS, null, values);
         db.close();
@@ -223,6 +223,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor GetReportsUser(String user){
+        db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from reports where huurder='"+user+"'", null);
+        return cursor;
+    }
+
 
     public Cursor GetWinkelmandProducts() {
         db = this.getWritableDatabase();
@@ -246,7 +252,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "delete from reports where huurder='"+report+"'";
         db.execSQL(query);
     }
-
 
 
 

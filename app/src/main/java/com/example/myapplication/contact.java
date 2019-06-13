@@ -20,7 +20,7 @@ public class contact extends AppCompatActivity {
         Homescreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Homescreenintent = new Intent(contact.this, MainActivity.class);
+                Intent Homescreenintent = new Intent(contact.this, HomeScherm.class);
                 startActivity(Homescreenintent);
             }
         });
