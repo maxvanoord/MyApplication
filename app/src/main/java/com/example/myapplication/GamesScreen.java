@@ -53,7 +53,7 @@ public class GamesScreen extends Activity {
                 c.setName(item_name);
                 c.setAmount(1);
                 helper.insertWinkelmandje(c);
-                Toast.makeText(GamesScreen.this, "Aan winkelmandje gevoegd" ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(GamesScreen.this, item_name + " aan winkelmandje toegevoegd" ,Toast.LENGTH_SHORT).show();
             }
         });
 

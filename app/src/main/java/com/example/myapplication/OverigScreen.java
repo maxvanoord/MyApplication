@@ -52,7 +52,7 @@ public class OverigScreen extends Activity {
                 c.setName(item_name);
                 c.setAmount(1);
                 helper.insertWinkelmandje(c);
-                Toast.makeText(OverigScreen.this, "Aan winkelmandje gevoegd" ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(OverigScreen.this, item_name + " aan winkelmandje toegevoegd" ,Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -59,7 +59,7 @@ public class Winkelmandje extends Activity {
                 helper.clearWinkelmandje();
                 finish();
                 startActivity(getIntent());
-                Toast.makeText(Winkelmandje.this, "winkelmandje geleegd", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Winkelmandje.this, "Winkelmandje geleegd", Toast.LENGTH_SHORT).show();
             }
         });
 

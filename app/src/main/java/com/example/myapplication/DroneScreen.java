@@ -52,7 +52,7 @@ public class DroneScreen extends Activity{
                 c.setName(item_name);
                 c.setAmount(1);
                 helper.insertWinkelmandje(c);
-                Toast.makeText(DroneScreen.this, "Aan winkelmandje gevoegd" ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(DroneScreen.this,  item_name + " aan winkelmandje toegevoegd" ,Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -52,7 +52,7 @@ public class VRscreen extends Activity {
                 c.setName(item_name);
                 c.setAmount(1);
                 helper.insertWinkelmandje(c);
-                Toast.makeText(VRscreen.this, "Aan winkelmandje gevoegd" ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(VRscreen.this, item_name + " aan winkelmandje toegevoegd" ,Toast.LENGTH_SHORT).show();
             }
         });
 
