@@ -73,7 +73,7 @@ public class Register extends Activity {
                     c.setPassword(pass1str);
                     helper.insertContact(c);
 
-                    Toast correct = Toast.makeText(Register.this, "Account is aangemaakt", Toast.LENGTH_SHORT);
+                    Toast correct = Toast.makeText(Register.this, usernamestr + " is aangemaakt", Toast.LENGTH_SHORT);
                     correct.show();
 
                     Intent xy = new Intent(Register.this, MainActivity.class);

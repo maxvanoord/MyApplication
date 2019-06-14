@@ -40,6 +40,8 @@ public class AdminAddProducts extends Activity implements OnItemSelectedListener
                     helper.insertProduct(c);
                     Toast correct = Toast.makeText(AdminAddProducts.this, "Product toegevoegd", Toast.LENGTH_SHORT);
                     correct.show();
+                    finish();
+                    startActivity(getIntent());
                 } catch (NumberFormatException e) {
                     Toast vrdfout = Toast.makeText(AdminAddProducts.this, "Veld 'voorraad' moet een getal zijn", Toast.LENGTH_SHORT);
                     vrdfout.show();
