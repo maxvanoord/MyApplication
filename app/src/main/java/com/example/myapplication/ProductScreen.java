@@ -15,6 +15,7 @@ public class ProductScreen extends Activity{
     ImageView games;
     ImageView computers;
     ImageView vr;
+    ImageView homescreen_user;
     TextView overig;
 
     @Override
@@ -29,6 +30,7 @@ public class ProductScreen extends Activity{
         computers = findViewById(R.id.computersimg);
         vr = findViewById(R.id.vrimg);
         overig = findViewById(R.id.textViewOverig);
+        homescreen_user = findViewById(R.id.homescreen);
 
 
         shopCart.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +89,13 @@ public class ProductScreen extends Activity{
             }
         });
 
+        homescreen_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToHomescreen_User = new Intent(ProductScreen.this, HomeScherm.class);
+                startActivity(goToHomescreen_User);
+            }
+        });
 
     }
 }

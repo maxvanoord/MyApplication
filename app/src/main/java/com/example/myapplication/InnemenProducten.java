@@ -66,7 +66,7 @@ public class InnemenProducten extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object item = parent.getItemAtPosition(position);
 
-                test.setText(item_name);
+//                test.setText(item_name);
 
                 //helper.DeleteReport(item_name);
 

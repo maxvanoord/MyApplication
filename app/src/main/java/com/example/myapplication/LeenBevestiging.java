@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class LeenBevestiging extends AppCompatActivity {
 
     DatabaseHelper helper;
     TextView datum;
+    ImageView undo;
 
     Intent intentdatum;
     String ophaal;
@@ -45,6 +47,15 @@ public class LeenBevestiging extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.ListViewOverzichtBestelling);
         helper = new DatabaseHelper(this);
+
+        undo = findViewById(R.id.undo);
+        undo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LeenBevestiging.this, ProductScreen.class);
+                startActivity(intent);
+            }
+        });
 
 
         Cursor data = helper.GetWinkelmandProducts();
