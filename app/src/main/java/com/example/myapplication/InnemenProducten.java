@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,6 +20,8 @@ public class InnemenProducten extends Activity {
 
     DatabaseHelper helper;
     ListView listView;
+    SimpleAdapter adapter;
+    TextView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class InnemenProducten extends Activity {
         helper = new DatabaseHelper(this);
         listView = findViewById(R.id.listViewInnemenProducten);
 
-        HashMap<String, String> itemStock = new HashMap<>();
+        HashMap<String, String> userItems = new HashMap<>();
 
         Cursor allItems = helper.GetAllReports();
 
@@ -36,17 +39,17 @@ public class InnemenProducten extends Activity {
             Toast.makeText(this, "Op het moment zijn er geen reports",Toast.LENGTH_LONG).show();
         }else{
             while(allItems.moveToNext()){
-                itemStock.put(allItems.getString(1), allItems.getString(2));
+                userItems.put(allItems.getString(1), allItems.getString(2));
             }
         }
 
         List<HashMap<String, String>> listItems = new ArrayList<>();
 
-        SimpleAdapter adapter = new SimpleAdapter(this, listItems, R.layout.layoutfile_voorraad,
+        adapter = new SimpleAdapter(this, listItems, R.layout.layoutfile_voorraad,
                 new String[]{"First Line", "Second Line"},
                 new int[]{R.id.text1, R.id.text2});
 
-        Iterator it = itemStock.entrySet().iterator();
+        Iterator it = userItems.entrySet().iterator();
         while (it.hasNext())
         {
             HashMap<String, String> resultsMap = new HashMap<>();
@@ -62,9 +65,15 @@ public class InnemenProducten extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object item = parent.getItemAtPosition(position);
-                String item_name = item.toString();
 
-                helper.DeleteReport(item_name);
+                test.setText(item_name);
+
+                //helper.DeleteReport(item_name);
+
+                adapter.notifyDataSetChanged();
+
+                Toast ingenomen = Toast.makeText(InnemenProducten.this , "Producten zijn ingenomen" , Toast.LENGTH_SHORT);
+                ingenomen.show();
             }
         });
     }

@@ -45,6 +45,7 @@ public class AdminDeleteProducts extends AppCompatActivity {
                 Object item = parent.getItemAtPosition(position);
                 String item_name = item.toString();
                 helper.DeleteProduct(item_name);
+
                 Toast.makeText(AdminDeleteProducts.this, "Product verwijderd", Toast.LENGTH_LONG).show();
             }
         });
