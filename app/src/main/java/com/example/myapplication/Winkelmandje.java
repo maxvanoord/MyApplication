@@ -32,6 +32,8 @@ public class Winkelmandje extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(Winkelmandje.this, LeenActivity.class);
                 startActivity(intent);
+
+
             }
         });
 
