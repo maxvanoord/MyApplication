@@ -133,7 +133,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_NAME_U , c.getUsername());
         values.put(COLUMN_EMAIL , c.getEmail());
         values.put(COLUMN_PASS , c.getPassword());
-        values.put(COLUMN_PERM, "Admin");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
+        values.put(COLUMN_PERM, "User");           // Permissions bestaan uit: 'Admin', 'Beheerder' en 'User'
 
         db.insert(TABLE_USERS, null, values);
         db.close();
@@ -252,7 +252,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void DeleteReport(String report){
         db = this.getWritableDatabase();
 
-        String query = "delete from reports where huurder='"+report+"'";
+        String query = "delete from reports where items='"+report+"'";
         db.execSQL(query);
     }
 
