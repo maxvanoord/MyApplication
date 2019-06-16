@@ -18,6 +18,7 @@ public class Winkelmandje extends Activity {
     Button reserveren;
     Button clear;
     DatabaseHelper helper;
+    Cursor data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,21 +28,11 @@ public class Winkelmandje extends Activity {
         reserveren = findViewById(R.id.buttonReserveren);
         clear = findViewById(R.id.clearWinkelmand);
 
-        reserveren.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Winkelmandje.this, LeenActivity.class);
-                startActivity(intent);
-
-
-            }
-        });
-
-        ListView listView = findViewById(R.id.listViewWinkelmand);
+                ListView listView = findViewById(R.id.listViewWinkelmand);
         helper = new DatabaseHelper(this);
 
         final ArrayList<String> winkelmandList = new ArrayList<>();
-        Cursor data = helper.GetWinkelmandProducts();
+        data = helper.GetWinkelmandProducts();
 
         if(data.getCount() == 0){
             Toast.makeText(this, "Winkelmandje is leeg",Toast.LENGTH_LONG).show();
@@ -55,6 +46,19 @@ public class Winkelmandje extends Activity {
                 listView.setAdapter(listAdapter);
             }
         }
+
+        reserveren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(data.getCount() == 0){
+                    Toast.makeText(Winkelmandje.this, "Winkelmandje is leeg",Toast.LENGTH_LONG).show();}
+                else{
+                Intent intent = new Intent(Winkelmandje.this, LeenActivity.class);
+                startActivity(intent);}
+
+
+            }
+        });
 
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
