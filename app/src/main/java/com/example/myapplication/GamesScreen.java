@@ -49,11 +49,18 @@ public class GamesScreen extends Activity {
                 Object item = parent.getItemAtPosition(position);
                 String item_name = item.toString();
 
-                Winkelmand_Database c = new Winkelmand_Database();
-                c.setName(item_name);
-                c.setAmount(1);
-                helper.insertWinkelmandje(c);
-                Toast.makeText(GamesScreen.this, item_name + " aan winkelmandje toegevoegd" ,Toast.LENGTH_SHORT).show();
+                boolean stockOk = false;
+
+                stockOk = helper.stockCheck(item_name);
+
+                if (stockOk) {
+                    Winkelmand_Database c = new Winkelmand_Database();
+                    c.setName(item_name);
+                    c.setAmount(1);
+                    helper.insertWinkelmandje(c);
+                    Toast.makeText(GamesScreen.this, item_name + " aan winkelmandje toegevoegd", Toast.LENGTH_SHORT).show();
+                }
+                else{Toast.makeText(GamesScreen.this, item_name + " is niet op voorraad", Toast.LENGTH_SHORT).show();}
             }
         });
 

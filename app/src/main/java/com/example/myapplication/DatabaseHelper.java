@@ -256,6 +256,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
+    public boolean stockCheck(String name){
+        db = this.getReadableDatabase();
+
+        Cursor product = db.rawQuery("select * from products where name='"+name+"'", null);
+
+        int stock = 0;
+
+        while(product.moveToNext()){
+        stock = product.getInt(2);}
+
+        if (stock >= 1){return true;}
+        else{return false;}
+
+    }
+
 
 
     public void eraseTables() {           // Func to clear a TABLE
