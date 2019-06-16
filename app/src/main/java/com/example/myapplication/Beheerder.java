@@ -11,6 +11,7 @@ public class Beheerder extends Activity {
     Button voorraad;
     Button reports;
     Button innemen;
+    Button uitloggen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class Beheerder extends Activity {
         voorraad = findViewById(R.id.buttonbeheerdervoorraad);
         reports = findViewById(R.id.buttonbeheerderreports);
         innemen = findViewById(R.id.buttonbeheerderinnemenproduct);
+        uitloggen = findViewById(R.id.buttonUitloggenBeheerder);
 
         voorraad.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,8 +47,12 @@ public class Beheerder extends Activity {
             }
         });
 
-
-
-
+        uitloggen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Beheerder.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
