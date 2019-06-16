@@ -49,6 +49,7 @@ public class Winkelmandje extends Activity {
             while(data.moveToNext()){
                 String item = data.getString(1);
                 winkelmandList.add(item);
+                DatabaseHelper.winkelmandItemsStock.add(item);
                 DatabaseHelper.winkelmandItems += item + " / ";
                 ListAdapter listAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,winkelmandList);
                 listView.setAdapter(listAdapter);

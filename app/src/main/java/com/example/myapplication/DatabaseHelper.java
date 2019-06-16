@@ -6,11 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Deze variabelen zijn vanuit elke class op te halen
     public static String loginKeeper = null;
     public static String winkelmandItems = "";
+    public static ArrayList<String> winkelmandItemsStock = new ArrayList<>();
 
     private static int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "contacts.db";
@@ -271,6 +274,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public void lowerStock(String name){
+        db = this.getWritableDatabase();
+
+        Cursor product = db.rawQuery("select * from products where name='"+name+"'", null);
+
+        int oldStock = 0;
+        int newStock = 0;
+
+        while(product.moveToNext()){oldStock = product.getInt(2);}
+
+        if (oldStock > 0){
+        newStock = oldStock - 1;}
+
+        String query = "update products set stock='"+newStock+"' where name='"+name+"'";
+        db.execSQL(query);
+
+    }
+
 
 
     public void eraseTables() {           // Func to clear a TABLE
@@ -285,6 +306,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void clearWinkelmandje() {
         db = this.getWritableDatabase();
         db.execSQL("delete from winkelmandje");
+        winkelmandItemsStock.clear();
+        winkelmandItems = "";
     }
 
     public void insertAllProducts() {

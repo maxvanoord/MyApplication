@@ -75,7 +75,12 @@ public class LeenBevestiging extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Report_Database c = new Report_Database(DatabaseHelper.loginKeeper, DatabaseHelper.winkelmandItems, ophaal, terugbreng);// hier word een nieuw object aangemaakt en toegevoegd aan de db
+                for (int i = 0; i < DatabaseHelper.winkelmandItemsStock.size(); i++){
+                    String item = DatabaseHelper.winkelmandItemsStock.get(i);
+                    helper.lowerStock(item);
+                }
+
+                Report_Database c = new Report_Database(DatabaseHelper.loginKeeper, DatabaseHelper.winkelmandItems, ophaal, terugbreng);
                 helper.insertReport(c);
 
                 Toast geslaagd = Toast.makeText(LeenBevestiging.this , "Reservering is voltooid" , Toast.LENGTH_SHORT);
